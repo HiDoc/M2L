@@ -2,3 +2,11 @@ html, body{height: 100%;font-family: 'Source Sans Pro', sans-serif;}
 body{background-color: #E8E8E8}
 body > div.wrapper{height: calc(100% - 75px);}
 .wrapper > div.row{margin: 0; padding-right: 0;}
+
+section > div > div.row.text-center{background-color: #f8f8f8;margin-bottom: 15px;}
+
+div.col-xs-12.menu-formation > div > div.col-xs-8 > h3 {margin: 10px 0 5px 0;}
+div.col-xs-12.menu-formation > div > div.col-xs-8 > h4 {margin-top: 5px;}
+div.col-xs-12.menu-formation > div > div.col-xs-4{height: 100px; background-color: #337AB7;}
+div.col-xs-12.menu-formation > div > div.col-xs-8{height: 100px; background-color: #F8F8F8;}
+div.col-xs-12.menu-formation > div.row {padding-bottom: 10px;}
