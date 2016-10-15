@@ -14,7 +14,7 @@
         <link href='<?=BASE_URL?>/view/css/fullcalendar.min.css' rel='stylesheet' />
         <link href='<?=BASE_URL?>/view/css/fullcalendar.print.css' rel='stylesheet' media='print' />
 		<!-- Google Font CSS -->
-		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700" rel="stylesheet">
 		<!-- Loader -->
 	</head>
 
@@ -65,15 +65,18 @@
 		<div class="wrapper">
 			<div class="row">
 				<div class="container-fluid">
-					<div class="col-xs-12 col-sm-2 navbar-collapse" id="navbar-collapse-2">
-						<!-- Navbar Gauche -->
-						<nav>
-							<ul class="nav nav-pills nav-stacked">
-							  <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Accueil</a></li>
-							  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
-							  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
-							</ul>
-						</nav>
+                    <div class="col-sm-2">
+                        <div class="navbar-collapse" id="navbar-collapse-2">
+
+                            <!-- Navbar Gauche -->
+                            <nav>
+                                <ul class="nav nav-pills nav-stacked">
+                                  <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Accueil</a></li>
+                                  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
+                                  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
+                                </ul>
+                            </nav>
+                        </div>
 					</div>
 					<div class="col-xs-12 col-md-10">
 						<section class="section">
