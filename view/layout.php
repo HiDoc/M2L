@@ -8,8 +8,9 @@
 		<link rel="icon" type="image/png" href="favicon.png" />
 		<title>M2L Gestion</title>
 		<!-- Mise en page / CSS -->
-		<link href="<?= BASE_URL; ?>/view/css/bootstrap.min.css" type="text/css" rel="stylesheet">
-		<link href="<?= BASE_URL; ?>/view/css/style.css" type="text/css" rel="stylesheet">
+		<link href="<?=BASE_URL?>/view/css/bootstrap.css" rel="stylesheet">
+		<link href="<?=BASE_URL?>/view/css/bootstrap-theme.css" rel="stylesheet">
+		<link href="<?=BASE_URL?>/view/css/style.css" rel="stylesheet">
 		<!-- Google Font CSS -->
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
 		<!-- Loader -->
@@ -72,7 +73,7 @@
 							</ul>
 						</nav>
 					</div>
-					<div class="col-xs-8 col-md-10">
+					<div class="col-xs-12 col-md-10">
 						<section class="section">
 						<?php echo $content; ?>
 						</section>

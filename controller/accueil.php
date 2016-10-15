@@ -5,6 +5,7 @@
 ?>
 <div class="container-fluid">
 	<div class="row text-center">
+		<?= sha1('salut').length; ?>
 		<h1>Bienvenue sur le M2L Gestion, suivi et administration de vos formations</h1>
 	</div>
 	<div class="row">

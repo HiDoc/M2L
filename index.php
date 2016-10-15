@@ -1,9 +1,9 @@
 <?php
-//Connection à la bdd
+
 require_once "model/connect.php";
 define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
-if(!isset($_GET['p']) || $_GET['p'] == "" /*|| !preg_match("#^[A-za-z0-9]+\/{0,3}$#", $_GET['p'])*/) {
+if(!isset($_GET['p']) || $_GET['p'] == "") {
 	$_GET['p'] = "accueil";
 }
 else {
