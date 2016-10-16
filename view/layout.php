@@ -29,31 +29,17 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			  </button>
-			  <a class="navbar-brand" href="#">M2L GESTION</a>
+			  <a class="navbar-brand" href="index.php">M2L GESTION</a>
 			</div>
 			
 			<!-- Navbar Haut -->
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 			  <ul class="nav navbar-nav navbar-right">
-					<li>	
-					  <form class="navbar-form navbar-left">
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-btn">
-								<input type="search" class="form-control" placeholder="Rechercher...">
-									<button class="btn btn-default" type="button">
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-									</button>
-								</span>
-							</div><!-- /input-group -->
-						</div>
-					  </form>
-					</li>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mon compte&nbsp;<span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">Profil</a></li>
-							<li><a href="#">Paramètres de compte</a></li>
+							<li><a href="profil">Profil</a></li>
+							<li><a href="parametres">Paramètres de compte</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="#">Se déconnecter <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></a></li>
 						</ul>
@@ -72,8 +58,9 @@
                             <nav>
                                 <ul class="nav nav-pills nav-stacked">
                                   <li role="presentation" class="active"><a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Accueil</a></li>
-                                  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
-                                  <li role="presentation"><a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
+                                  <li role="presentation"><a href="formation"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Offres de formations</a></li>
+                                  <li role="presentation"><a href="mesFormations"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
+                                  <li role="presentation"><a href="messagerie"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
                                 </ul>
                             </nav>
                         </div>

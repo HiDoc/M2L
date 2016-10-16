@@ -1,33 +1,17 @@
 <div class="container-fluid">
 	<div class="row text-center">
-		<h1 class="hidden-xs">Bienvenue sur le M2L Gestion, suivi et administration de vos formations</h1>
+		<h1 class="hidden-xs">Offres de formations :</h1>
 	</div>
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 menu-formation">
-			<div class="row">
-				<div class="col-xs-12">
-					<h2>Nouveaux messages :</h2>
-					<table class="table table-condensed">
-						<thead>
-						   <tr>
-							   <th>Utilisateur</th>
-							   <th>Titre</th>
-							   <th>Date d'envoi</th>
-							 </tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Administrateur</td>
-								<td><a href="#">Bienvenue sur le logiciel de gestion !</a></td>
-								<td>16/10/2016 8:30</td>
-							</tr>
-							<tr>
-								<td>Administrateur</td>
-								<td><a href="#">Récupération de votre mot de passe</a></td>
-								<td>16/10/2016 16:30</td>
-							</tr>
-						</tbody>
-					</table>
+			<div class="row text-center jour-credit">
+				<div class="col-xs-6">
+					<h3>15 jours</h3>
+					<p>de formations restants<p>
+				</div>
+				<div class="col-xs-6">
+					<h3>5000 Crédits</h3>
+					<p>de formations restants</p>
 				</div>
 			</div>
 			<div class="row">
