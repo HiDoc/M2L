@@ -15,70 +15,212 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12">	
-					<h2>Mes prochaines formations :</h2>
+				<div class="col-xs-12 border-top-purple">	
+					<h2>Description de la formation :</h2>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row list-border">
 				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
 				<div class="col-xs-8 col-sm-6">
 					<h3>Nom de la formation</h3>
 					<h4>Date de la formation</h4>
 					<p class="hidden-xs">
-						<span class="label label-success">Genre</span>
-						<span class="label label-info">Formation</span>
-						<span class="label label-warning">Genre</span>
-						<span class="label label-danger">Formation</span>
+						<span class="label label-danger">500 crédits</span>
 					</p>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
-				<div class="col-xs-8 col-sm-6">
-					<h3>Nom de la formation</h3>
-					<h4>Date de la formation</h4>
-					<p class="hidden-xs">
-						<span class="label label-success">Genre</span>
-						<span class="label label-info">Formation</span>
-						<span class="label label-warning">Genre</span>
-						<span class="label label-danger">Formation</span>
-					</p>
+				<div class="col-xs-12 col-sm-offset-1">
+					<button class="btn btn-success" type="button">S'inscrire</button>
+					<button class="btn btn-info" type="button">Télécharger au format PDF <span class="glyphicon glyphicon-download" aria-hidden="true"></span></button>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
-				<div class="col-xs-8 col-sm-6">
-					<h3>Nom de la formation</h3>
-					<h4>Date de la formation</h4>
-					<p class="hidden-xs">
-						<span class="label label-success">Genre</span>
-						<span class="label label-info">Formation</span>
-						<span class="label label-warning">Genre</span>
-						<span class="label label-danger">Formation</span>
-					</p>
-				</div>
+			<div class="col-xs-12 col-sm-offset-1 col-sm-10">
+				<h3>Lieu :</h3>
+				<p>Paris</p>
+				<h3>Contenu :</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic a cumque eum obcaecati maiores odit pariatur illum repellendus dolores molestias. Reprehenderit quis recusandae placeat voluptatum expedita dolorum, labore maxime delectus.</p>
+				<h3>Prérequis :</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit impedit dolor ex, mollitia ducimus tempore reiciendis provident distinctio, deleniti odio sunt cum quos aut harum, tenetur et ut, laboriosam a.</p>
+				<h3>Prestataire :</h3>
+				<p>ML2 GESTION</p>
 			</div>
-			<div class="row">
-				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
-				<div class="col-xs-8 col-sm-6">
-					<h3>Nom de la formation</h3>
-					<h4>Date de la formation</h4>
-					<p class="hidden-xs">
-						<span class="label label-success">Genre</span>
-						<span class="label label-info">Formation</span>
-						<span class="label label-warning">Genre</span>
-						<span class="label label-danger">Formation</span>
-					</p>
-				</div>
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-6">
 			<div class="row">
-				<div class="col-xs-12">
-					<h2>Calendrier des formations :</h2>
+				<div class="col-xs-12 border-top-purple">
+					<h2>Toutes les offres</h2>
 				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Rechercher une formation...">
+						<span class="input-group-btn">
+							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+						</span>
+						</div><!-- /input-group -->
+					</div><!-- /.col-sm-6 -->
+				<div class="col-xs-12 col-sm-offset-3 col-sm-1">
+					<div class="input-group">
+					  <div class="input-group-btn">
+						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
+						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></button>
+						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
+					  </div>
+					</div>
+				</div>
+			</div>	
+			<div class="row tablescroll">
+				<table class="table table-condensed formation-table">
+						<thead>
+						   <tr>
+							   <th>Intitulé de la formation</th>
+							   <th>Durée</th>
+							   <th>Date</th>
+							   <th>Lieu</th>
+							   <th>Prestataire</th>
+							 </tr>
+						</thead>
+						<tbody>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+							<tr class="formation-table-infos">
+								<td>Formation</td>
+								<td>Nombres de jours</td>
+								<td>Date de départ</td>
+								<td>Lieu actuel</td>
+								<td>Un prestataire</td>
+							</tr>
+							<tr class="formation-table-contenu">
+								<td colspan="1">Contenu :</td>
+								<td colspan="5">contenu de la formation en détails</td>
+							</tr>
+							<tr class="formation-table-prerequis">
+								<td colspan="1">Prérequis</td>
+								<td colspan="5">Tout les prérequis nécessaire à l'inscription de la formation</td>
+							</tr>
+						</tbody>
+					</table>
 			</div>
-            <div id='calendar'></div>
 		</div>
 	</div>
 </div>

@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 menu-formation">
 			<div class="row">
-				<div class="col-xs-12">
+				<div class="col-xs-12 border-top-purple">
 					<h2>Nouveaux messages :</h2>
 					<table class="table table-condensed">
 						<thead>
@@ -31,11 +31,11 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-12">	
+				<div class="col-xs-12 border-top-purple">	
 					<h2>Mes prochaines formations :</h2>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row list-border">
 				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
 				<div class="col-xs-8 col-sm-6">
 					<h3>Nom de la formation</h3>
@@ -48,7 +48,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row list-border">
 				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
 				<div class="col-xs-8 col-sm-6">
 					<h3>Nom de la formation</h3>
@@ -61,7 +61,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row list-border">
 				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
 				<div class="col-xs-8 col-sm-6">
 					<h3>Nom de la formation</h3>
@@ -74,7 +74,7 @@
 					</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row list-border">
 				<div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
 				<div class="col-xs-8 col-sm-6">
 					<h3>Nom de la formation</h3>
@@ -89,8 +89,8 @@
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-6">
-			<div class="row">
-				<div class="col-xs-12">
+			<div class="row list-border">
+				<div class="col-xs-12 border-top-purple">
 					<h2>Calendrier des formations :</h2>
 				</div>
 			</div>
