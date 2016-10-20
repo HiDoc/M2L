@@ -24,9 +24,6 @@
 				<div class="col-xs-8 col-sm-6">
 					<h3>Nom de la formation</h3>
 					<h4>Date de la formation</h4>
-					<p class="hidden-xs">
-						<span class="label label-danger">500 crédits</span>
-					</p>
 				</div>
 			</div>
 			<div class="row">

@@ -56,12 +56,12 @@
                             <!-- Navbar Gauche -->
                             <nav>
                                 <ul class="nav nav-pills nav-stacked">
-                                  <li role="menuitem"><a href="accueil"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Accueil</a></li>
-                                  <li role="menuitem"><a href="formation"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;&nbsp;Offres de formations</a></li>
-                                  <li role="menuitem"><a href="mesFormations"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
-                                  <li role="menuitem"><a href="messagerie"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
-                                  <li role="menuitem"><a href="connexion"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>&nbsp;&nbsp;Se connecter</a></li>
-                                  <li role="menuitem"><a href="ficheFormation"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Fiche de formation</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/accueil"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Accueil</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/formation"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;&nbsp;Offres de formations</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/mesFormations"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/messagerie"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/connexion"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>&nbsp;&nbsp;Se connecter</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/ficheFormation"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Fiche de formation</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -76,11 +76,85 @@
 		</div>
 		<!-- jQuery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js">
 		<!-- Plugins jQuery -->
 		<script src="<?=BASE_URL?>/view/js/bootstrap.min.js"></script>
         <script src='<?=BASE_URL?>/view/js/moment.min.js'></script>
         <script src='<?=BASE_URL?>/view/js/fullcalendar.min.js'></script>
+        <script>
+
+	$(document).ready(function() {
+		
+		$('#calendar').fullCalendar({
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,basicWeek,basicDay'
+			},
+			defaultDate: '2016-09-12',
+			navLinks: true, // can click day/week names to navigate views
+			editable: true,
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				{
+					title: 'All Day Event',
+					start: '2016-09-01'
+				},
+				{
+					title: 'Long Event',
+					start: '2016-09-07',
+					end: '2016-09-10'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-09-09T16:00:00'
+				},
+				{
+					id: 999,
+					title: 'Repeating Event',
+					start: '2016-09-16T16:00:00'
+				},
+				{
+					title: 'Conference',
+					start: '2016-09-11',
+					end: '2016-09-13'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-09-12T10:30:00',
+					end: '2016-09-12T12:30:00'
+				},
+				{
+					title: 'Lunch',
+					start: '2016-09-12T12:00:00'
+				},
+				{
+					title: 'Meeting',
+					start: '2016-09-12T14:30:00'
+				},
+				{
+					title: 'Happy Hour',
+					start: '2016-09-12T17:30:00'
+				},
+				{
+					title: 'Dinner',
+					start: '2016-09-12T20:00:00'
+				},
+				{
+					title: 'Birthday Party',
+					start: '2016-09-13T07:00:00'
+				},
+				{
+					title: 'Click for Google',
+					url: 'http://google.com/',
+					start: '2016-09-28'
+				}
+			]
+		});
+		
+	});
+
+</script>
         <script>
 			var actual = window.location.pathname.substr(5);
 			$('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual +']').parent().addClass('active');
