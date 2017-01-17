@@ -17,8 +17,10 @@
 		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700" rel="stylesheet">
 		<!-- Loader -->
 	</head>
-
-	<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    
+	<body class="<?= 'template-'.$_GET['p'] ?>">
+    <?php if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){?>
 		<nav class="navbar navbar-static-top navbar-default">
 		  <div class="container-fluid">
 			<!-- Nom de l'entreprise et liste pour mobile -->
@@ -47,9 +49,21 @@
 			</div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
 		</nav>
+		<?php }
+      else{ ?>
+        <nav class="navbar navbar-static-top navbar-default">
+          <div class="container-fluid">
+            <!-- Nom de l'entreprise et liste pour mobile -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="accueil">M2L GESTION</a>
+            </div>
+          </div><!-- /.container-fluid -->
+        </nav>
+      <?php }?>
 		<div class="wrapper">
 			<div class="row">
 				<div class="container-fluid">
+                    <?php if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){?>
                     <div class="col-sm-2">
                         <div class="collapse navbar-collapse" id="navbar-collapse-2">
 
@@ -62,10 +76,14 @@
                                   <li role="menuitem"><a href="<?=BASE_URL?>/messagerie"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
                                   <li role="menuitem"><a href="<?=BASE_URL?>/connexion"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>&nbsp;&nbsp;Se connecter</a></li>
                                   <li role="menuitem"><a href="<?=BASE_URL?>/ficheFormation"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Fiche de formation</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/recherche"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Recherche</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/historique"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Historique</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/statistique"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Statistique</a></li>
                                 </ul>
                             </nav>
                         </div>
 					</div>
+					<?php } ?>
 					<div class="col-xs-12 col-md-10">
 						<section class="section">
 						<?php echo $content; ?>
@@ -75,7 +93,6 @@
 			</div>
 		</div>
 		<!-- jQuery -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 		<!-- Plugins jQuery -->
 		<script src="<?=BASE_URL?>/view/js/bootstrap.min.js"></script>
         <script src='<?=BASE_URL?>/view/js/moment.min.js'></script>
@@ -157,7 +174,7 @@
 </script>
         <script>
 			var actual = window.location.pathname.substr(5);
-			$('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual +']').parent().addClass('active');
+			$('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual + ']').parent().addClass('active');
 		</script>
 	</body>
 </html>
