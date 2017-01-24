@@ -1,3 +1,7 @@
+drop table if exists associer,tag, suivreFormation, formation, prestataire,employe,typeEmploye;
+drop procedure if exists ajouter_formation;
+drop procedure if exists insert_user;
+
 create table if not exists tag(
 id_tag int primary key not null auto_increment,
 libelle varchar(64)
@@ -60,6 +64,7 @@ primary key (e_id, f_id),
 foreign key (e_id) references employe(id_e),
 foreign key (f_id) references formation(id_f)
 );
+
 DELIMITER |
 CREATE PROCEDURE ajouter_formation(nbr int)      
 BEGIN
@@ -82,17 +87,28 @@ BEGIN
 END|
 DELIMIT
 DELIMITER ;
-DROP PROCEDURE ajouter_formation;
+
+insert into typeemploye values(default, 'admin');
+insert into typeemploye values(default, 'utilisateur');
+
+insert into employe values (default,'admin',null, 'admin@m2l.com', sha1('admin'), null, null, 1,null);
+
+DELIMITER $$
+CREATE PROCEDURE insert_user(nbr int)
+BEGIN
+DECLARE v_i INT DEFAULT 1;
+REPEAT
+		REPEAT
+			insert into employe values(default, 'salut' , 'cestmoi','cestmoi@gmail.cm', sha1('azerty'), default, default, 1, 1);
+			SET v_i = v_i + 1;    
+		UNTIL v_i > nbr END REPEAT;
+	UNTIL v_i > nbr END REPEAT;
+END $$
+DELIMIT
+DELIMITER ;
+select * from typeEmploye;
+select * from employe where email = "admin@m2l.com" AND mdp = sha1('admin');
+CALL insert_user(50);
 CALL ajouter_formation(50);
-
-
-update employe set email = 'admin@m2l.com';
-select * from employe;
-
-SELECT * from employe, typeEmploye 
-WHERE email = 'admin@m2l.com'
-AND mdp = sha1('admin')
-AND id_te = typeEmploye_ID;
-
-insert into employe values(default, 'admin',null, 'admin@m2l.com', sha1('admin'), null,null, 1, null);
-select * from typeemploye;
+select * from formation;
+SELECT * FROM employe WHERE superieur_id = 1;
