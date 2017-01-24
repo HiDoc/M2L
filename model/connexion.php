@@ -1,5 +1,5 @@
 <?php 
-if(isset($_POST['submit'])){
+function getUser(){
   $bdd = $GLOBALS['bdd'];
   $query = $bdd->prepare('SELECT * from employe, typeEmploye 
                           WHERE email =:email
@@ -10,13 +10,10 @@ if(isset($_POST['submit'])){
   $query->execute();
   if($query->rowCount() == 1){
     $data = $query->fetch();
-    $_SESSION['id'] = $data['id_e'];
-    $_SESSION['connecte'] = 'true';
+    return [$data['id_e'],true];
   }
   else{
-    //TODO : Faire le leveling pour retrouver si l'id ou le mdp est incorrect
-    echo 
-      "<div class='row red'><div class='col-xs-12 col-sm-2 col-sm-offset-6'>Identifiants incorrects</div></div>";
+    return ["<div class='row red'><div class='col-xs-12 col-sm-2 col-sm-offset-6'>Identifiants incorrects</div></div>",false]; 
   }
 }
 

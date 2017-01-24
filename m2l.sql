@@ -87,4 +87,12 @@ CALL ajouter_formation(50);
 
 
 update employe set email = 'admin@m2l.com';
+select * from employe;
 
+SELECT * from employe, typeEmploye 
+WHERE email = 'admin@m2l.com'
+AND mdp = sha1('admin')
+AND id_te = typeEmploye_ID;
+
+insert into employe values(default, 'admin',null, 'admin@m2l.com', sha1('admin'), null,null, 1, null);
+select * from typeemploye;

@@ -42,7 +42,7 @@
 						<ul class="dropdown-menu">
 							<li><a href="profil"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Profil </a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>&nbsp;&nbsp;Se déconnecter</a></li>
+							<li><a href="disconnect"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>&nbsp;&nbsp;Se déconnecter</a></li>
 						</ul>
 					</li>
 			  </ul>
@@ -74,7 +74,7 @@
                                   <li role="menuitem"><a href="<?=BASE_URL?>/formation"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;&nbsp;Offres de formations</a></li>
                                   <li role="menuitem"><a href="<?=BASE_URL?>/mesFormations"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
                                   <li role="menuitem"><a href="<?=BASE_URL?>/messagerie"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
-                                  <li role="menuitem"><a href="<?=BASE_URL?>/connexion"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span>&nbsp;&nbsp;Se connecter</a></li>
+                                  <li role="menuitem"><a href="<?=BASE_URL?>/employe"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Employés</a></li>
                                   <li role="menuitem"><a href="<?=BASE_URL?>/ficheFormation"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Fiche de formation</a></li>
                                   <li role="menuitem"><a href="<?=BASE_URL?>/recherche"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Recherche</a></li>
                                   <li role="menuitem"><a href="<?=BASE_URL?>/historique"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Historique</a></li>

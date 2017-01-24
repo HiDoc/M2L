@@ -5,7 +5,7 @@ define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
 
 if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){
-  if(!isset($_GET['p']) || $_GET['p'] == "") {
+  if(!isset($_GET['p']) || $_GET['p'] == "" || $_GET['p'] == 'login') {
       $_GET['p'] = "accueil";
   }
   else {
@@ -13,8 +13,8 @@ if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){
           $_GET['p'] = '404';
   }
 }
-else{
-  $_GET['p']='login';
+else {
+  $_GET['p']='connexion';
 }
 
 ob_start();
