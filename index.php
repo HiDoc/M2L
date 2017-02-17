@@ -1,11 +1,11 @@
 <?php
 session_start();
-require_once "model/connect.php";
+require_once "controller/bdd.php";
 define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
 
 if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){
-  if(!isset($_GET['p']) || $_GET['p'] == "" || $_GET['p'] == 'login') {
+  if(!isset($_GET['p']) || $_GET['p'] == "" || $_GET['p'] == 'login' || $_GET['p'] == 'bdd') {
       $_GET['p'] = "accueil";
   }
   else {

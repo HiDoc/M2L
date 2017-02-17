@@ -104,11 +104,9 @@ REPEAT
 		UNTIL v_i > nbr END REPEAT;
 	UNTIL v_i > nbr END REPEAT;
 END $$
-DELIMIT
 DELIMITER ;
-select * from typeEmploye;
-select * from employe where email = "admin@m2l.com" AND mdp = sha1('admin');
-CALL insert_user(50);
-CALL ajouter_formation(50);
-select * from formation;
-SELECT * FROM employe WHERE superieur_id = 1;
+
+
+SELECT * FROM formation f, suivreFormation s 
+                        WHERE id_f = f_id
+                        AND s.e_id = 2 ;
