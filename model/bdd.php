@@ -6,7 +6,7 @@ try {
     $bdd = new PDO("mysql:host=$hostname;dbname=$dbname;",$user,$password);
 }
 catch(Exception $e){
-    die('Erreur de connection');
+    die('Erreur de connection ');
 }
 
 ?>

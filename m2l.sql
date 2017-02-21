@@ -1,7 +1,7 @@
 drop table if exists associer,tag, suivreFormation, formation, prestataire,employe,typeEmploye;
 drop procedure if exists ajouter_formation;
 drop procedure if exists insert_user;
-
+use M2L;
 create table if not exists tag(
 id_tag int primary key not null auto_increment,
 libelle varchar(64)
@@ -107,6 +107,5 @@ END $$
 DELIMITER ;
 
 
-SELECT * FROM formation f, suivreFormation s 
-                        WHERE id_f = f_id
-                        AND s.e_id = 2 ;
+select * from employe;
+select * from formation;
