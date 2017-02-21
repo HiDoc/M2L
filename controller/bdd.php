@@ -6,4 +6,8 @@ $hostname = "localhost";
 $dbname = "m2l";
 $user = "root";
 $password = "";
-require('model/bdd.php') ?>
+if(file_exists('model/bdd.php')){ 
+  require('model/bdd.php');
+}
+else require('../model/bdd.php');
+?>

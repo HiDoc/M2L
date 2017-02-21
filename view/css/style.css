@@ -151,3 +151,11 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
 .template-employe table{
   table-layout: fixed;
 }
+.formation-table-infos.formation-hover{
+  background-color:rgba(102, 51, 153, 0.78);
+}
+.formation-hover{
+  background-color:rgba(102, 51, 153, 0.58);
+  border-color: rgba(102, 51, 153,0.1);
+  cursor: pointer;
+}
