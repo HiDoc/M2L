@@ -1,4 +1,7 @@
 <?php 
+/**
+  * Récupère les formations à venir
+  */
 function getFormation(){
   $bdd = $GLOBALS['bdd'];
   $query = $bdd->query('

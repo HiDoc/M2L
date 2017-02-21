@@ -1,5 +1,8 @@
 <?php require "model/formation.php"; ?>
 <?php 
+/**
+  * Affiche les formations sous forme de tableau 
+  */
 function showFormation(){
   $data = getFormation();
   foreach($data as $value){

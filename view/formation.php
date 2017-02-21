@@ -49,20 +49,21 @@
 	</div>
 </div>
 <script>
-  $('tr').hover(function(){
-    var id = $(this).attr('data-id');
-    $('tr[data-id|='+ id +']').addClass('formation-hover');
-  }).mouseout(function(){
-    var id = $(this).attr('data-id');
-    $('tr[data-id|='+ id +']').removeClass('formation-hover');
-  });
-  $(document).ready(function(){
-    $('.menu-formation').load('controller/ajax_getFormation.php');
-  });
-  $('tr').click(function(){
-    var $id = $(this).attr('data-id');
-    $.post( "controller/ajax_getFormation.php",{id : $id }).done(function(data){
-        $('.menu-formation').html(data);
-      });
-    });
+  eval(function(p,a,c,k,e,r){e=function(c){return c.toString(a)};if(!''.replace(/^/,String)){while(c--)r[e(c)]=k[c]||e(c);k=[function(e){return r[e]}];e=function(){return'\\w+'};c=1};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p}('$(\'3\').8(2(){7 0=$(6).5(\'1-0\');$(\'3[1-0|=\'+0+\']\').h(\'4-8\')}).g(2(){7 0=$(6).5(\'1-0\');$(\'3[1-0|=\'+0+\']\').m(\'4-8\')});$(i).d(2(){$(\'.9-4\').f(\'a/b.c\')});$(\'3\').j(2(){7 $0=$(6).5(\'1-0\');$.k("a/b.c",{0:$0}).l(2(1){$(\'.9-4\').e(1)})});',23,23,'id|data|function|tr|formation|attr|this|var|hover|menu|controller|ajax_getFormation|php|ready|html|load|mouseout|addClass|document|click|post|done|removeClass'.split('|'),0,{}));
 </script>
+<?php /*$('tr').hover(function(){
+  var id = $(this).attr('data-id');
+  $('tr[data-id|='+ id +']').addClass('formation-hover');
+}).mouseout(function(){
+  var id = $(this).attr('data-id');
+  $('tr[data-id|='+ id +']').removeClass('formation-hover');
+});
+$(document).ready(function(){
+  $('.menu-formation').load('controller/ajax_getFormation.php');
+});
+$('tr').click(function(){
+  var $id = $(this).attr('data-id');
+  $.post( "controller/ajax_getFormation.php",{id : $id }).done(function(data){
+      $('.menu-formation').html(data);
+    });
+  });*/?>
