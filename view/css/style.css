@@ -21,7 +21,7 @@ body > div > div > div > div.col-xs-12.col-md-10 > section > div > div:nth-child
 }
 
 .jour-credit {
-  background-color: rebeccapurple;
+  background-color: #366899;
   color: white;
 }
 
@@ -36,7 +36,7 @@ section > div > div.row.text-center {
 
 .connexion-full {
   height: 100%;
-  margin: 20% 0 15px 0;
+  margin: 15% 0 15px 0;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -48,7 +48,7 @@ section > div > div.row.text-center {
 }
 
 body > nav > div {
-  background-color: rebeccapurple;
+  background-color: #366899;
   color: white;
 }
 
@@ -67,7 +67,7 @@ body .navbar-default .navbar-nav > li > a:hover{
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  background-color: rebeccapurple;
+  background-color: #366899;
   background-image: none;
   color: white;
 }
@@ -76,11 +76,11 @@ body .navbar-default .navbar-nav > li > a:hover{
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  background-color: rebeccapurple;
+  background-color: #366899;
 }
 
 .fc-event {
-  border: 1px solid rebeccapurple !important;
+  border: 1px solid #366899 !important;
 }
 
 @media (min-width: 640px) {
@@ -99,7 +99,7 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 > h4 {
 
 div.col-xs-12.menu-formation > div > div.col-xs-4 {
   height: 100px;
-  background-color: rebeccapurple;
+  background-color: #366899;
 }
 
 div.col-xs-12.menu-formation > div > div.col-xs-8 {
@@ -108,7 +108,7 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
 }
 
 .formation-table thead {
-  background-color: rebeccapurple;
+  background-color: #366899;
   color: white;
 }
 
@@ -124,7 +124,7 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
 }
 
 .formation-table-infos {
-  background-color: rgba(102, 51, 153, 0.58);
+  background-color: rgba(54, 104, 153, 0.58);
   color: white;
 }
 
@@ -133,32 +133,96 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
 }
 
 .border-top-purple {
-  border-top: 10px solid rebeccapurple;
+  border-top: 10px solid #366899;
 }
 
 .historique-table thead {
-  background-color: rebeccapurple;
+  background-color: #366899;
   color: white;
 }
 
 .programme-formation {
   border-bottom: 30px solid #e8e8e8;
 }
-
+/* CONNEXION */
+.template-connexion{
+  background-image: url(../ressources/img/mongolfiere.jpg);
+  background-size: cover;
+}
+.template-connexion h2{
+  color: white;
+  margin-bottom: 0;
+  background-color: #366899;
+  border-radius: 10px 10px 0 0;
+  font-weight: 600;
+  text-align: center;
+  padding: 5px 0;
+}
+.template-connexion form {
+  padding: 30px 30px 30px 30px ;
+  border-radius: 0 0 10px 10px;
+  background-color: rgba(54, 104, 153, 0.5);
+}
+.template-connexion form a {
+  color: white;
+}
+.template-connexion .form-group {
+  margin-bottom: 30px;
+}
+.template-connexion form label:not(:last-child) {
+  color: white;
+  font-size:16px;
+}
+.template-connexion form label:last-child {
+  color: white;
+}
+.template-connexion .input-group-addon:first-child{
+  background-color: #366899;
+  border-color:#366899;
+}
+.template-connexion .input-group-addon:first-child span{
+  color: white;
+}
+/* RECHERCHE */
 .template-recherche .form-control:focus {
-  border-color: rebeccapurple;
+  border-color: #366899;
   outline: 0;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 51, 153, .6);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 51, 153, .6);
 }
+/* EMPLOYE */
 .template-employe table{
   table-layout: fixed;
 }
+/* TOUTES LES FORMATIONS */
 .formation-table-infos.formation-hover{
-  background-color:rgba(102, 51, 153, 0.78);
+  background-color:rgba(54, 104, 153, 0.78);
 }
 .formation-hover{
-  background-color:rgba(102, 51, 153, 0.58);
-  border-color: rgba(102, 51, 153,0.1);
+  background-color:rgba(54, 104, 153, 0.58);
+  border-color: rgba(54, 104, 153, 0.18);
   cursor: pointer;
 }
+/* MES FORMATIONS */
+.template-mesFormations .formation-table-content .tablescroll {
+  max-height: 200px;
+}
+.template-mesFormations tr:hover{
+  cursor: pointer;
+}
+.template-mesFormations .calendar-mesFormations{
+  background-color: white;
+}
+.template-mesFormations .formation-table-content tr:hover{
+  background-color: rgba(42, 171, 210, 0.20);
+}
+.template-mesFormations .historique-table-content .tablescroll {
+  max-height: 250px;
+}
+.template-mesFormations .historique-table-content tr:hover{
+  background-color: rgba(54, 104, 153, 0.18);
+}
+.template-mesFormations #card .back{
+  background-color:white;
+}
+

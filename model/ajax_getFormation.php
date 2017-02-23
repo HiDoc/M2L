@@ -6,7 +6,7 @@ require('../controller/bdd.php');
 function getFormation($id){
   $bdd = $GLOBALS['bdd'];
   $query = $bdd->prepare('
-  SELECT titre, date(date_f), creditPoint, lieu,description,prerequis, nom 
+  SELECT titre, date(date_f), creditPoint, lieu, description, prerequis, nom 
   FROM formation f, prestataire p 
   WHERE id_f = :id
   AND p_id = id_p');

@@ -42,10 +42,11 @@ date_f datetime,
 duree int,
 creditJour int,
 creditPoint int,
+lieu varchar(64),
 description varchar(254),
 prerequis varchar(64),
-id_prestataire int,
-foreign key (id_prestataire) references prestataire(id_p)
+p_id int,
+foreign key (p_id) references prestataire(id_p)
 );
 
 create table if not exists associer(
@@ -72,6 +73,7 @@ BEGIN
 	DECLARE titre VARCHAR(64) DEFAULT 'titre formation';
 	DECLARE date_f DATETIME DEFAULT now();
     DECLARE duree int DEFAULT 3600*48;
+    DECLARE lieu varchar(64) default 'Paris';
     DECLARE creditJour int DEFAULT 2;
     DECLARE creditFormation int DEFAULT 500;
     DECLARE description VARCHAR(64) DEFAULT 'zhauihzea ndlz abnhjkldb qnhd kjahznjkle bhzau';
@@ -80,7 +82,7 @@ BEGIN
     REPEAT
 		insert into prestataire values(default, 'un prestataire', 15, 'rue du champ', 'PARIS', 75020);
 		REPEAT
-			insert into formation values(default, titre , date_f, duree, creditJour,creditFormation, description,prerequis, id_presta);
+			insert into formation values(default, titre , date_f, duree, creditJour,creditFormation,lieu, description,prerequis, id_presta);
 			SET v_i = v_i + 1;    
 		UNTIL v_i > nbr END REPEAT;
 	UNTIL v_i > nbr END REPEAT;
@@ -90,7 +92,6 @@ DELIMITER ;
 
 insert into typeemploye values(default, 'admin');
 insert into typeemploye values(default, 'utilisateur');
-
 insert into employe values (default,'admin',null, 'admin@m2l.com', sha1('admin'), null, null, 1,null);
 
 DELIMITER $$
@@ -106,6 +107,18 @@ REPEAT
 END $$
 DELIMITER ;
 
+CALL ajouter_formation(50);
+update formation set date_f = '2017-02-22 14:03:03';
 
-select * from employe;
-select * from formation;
+DELIMITER $$
+CREATE PROCEDURE assoc_formation(nbr int)
+BEGIN
+DECLARE v_i INT DEFAULT 1;
+	REPEAT
+		insert into suivreFormation values(1, v_i, default);
+		SET v_i = v_i + 1;    
+	UNTIL v_i > nbr END REPEAT;
+END $$
+DELIMITER ;
+
+CALL assoc_formation(50);

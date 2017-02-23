@@ -24,9 +24,8 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12 col-sm-offset-1">
-        <button class="btn btn-success" type="button">S'inscrire</button>
-        <button class="btn btn-info" type="button">Télécharger au format PDF <span class="glyphicon glyphicon-download" aria-hidden="true"></span></button>
+    <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+     <?php buttonToShow()?>
     </div>
 </div>
 <div class="row">

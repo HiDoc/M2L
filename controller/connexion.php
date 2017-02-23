@@ -3,9 +3,9 @@
 <?php 
 if(isset($_POST['submit'])){
   $data = getUser();
-  if($data[1] == false)
+  if(!$data[1])
     echo $data[0];
-  else{
+  else {
     $_SESSION['id'] = $data[1];
     $_SESSION['connecte'] = true;
     header('location:accueil');

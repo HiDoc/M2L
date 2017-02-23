@@ -23,13 +23,6 @@ function coloriserTD($data){
 
 //affichage du tableau
 function afficherTableau(){ 
-  /*$query = $GLOBALS['bdd']->query("SELECT f.id_f as id_formation, s.titre as titre, s.date_f as date, s.duree as duree, s.creditJour as creditJour, 
-                        s.description as description, s.prerequis as prerequis, p.nom as nomprestataire
-                        FROM suivreFormation s, formation f, prestataire p 
-                        WHERE s.e_id =".$_SESSION['id_e'].' 
-                        AND a.f_id = f.id_f 
-                        AND a.p_id = p.id_p');
-  */
   $query = $GLOBALS['bdd']->query('SELECT * from formation');
   while($data = $query->FETCH(PDO::FETCH_ASSOC)){
     coloriserTD($data);

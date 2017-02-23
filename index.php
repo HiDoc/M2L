@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "controller/bdd.php";
+require_once "core/class.button.php";
 define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
 

@@ -5,38 +5,23 @@
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 menu-formation historique-formation">
 			<div class="row">
-				<div class="col-xs-12 border-top-purple">
-					<h2>Formations en cours :</h2>
-					<table class="table table-condensed">
-						<thead>
-						   <tr>
-							   <th>Formation</th>
-							   <th>Date de début</th>
-							   <th>Lieu</th>
-							   <th class="text-right">Télécharger au format pdf</th>
-							 </tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Formation Wed</td>
-								<td>28/09/2016</a></td>
-								<td>Paris</td>
-								<td  class="text-right"><button class="btn btn-info" type="button"><span class="glyphicon glyphicon-download" aria-hidden="true"></span><span class="hidden-xs">&nbsp;&nbsp;Télechargement</span></button></td>
-							</tr>
-							<tr>
-								<td>Formation Wed</td>
-								<td>28/09/2016</a></td>
-								<td>Paris</td>
-								<td class="text-right"><button class="btn btn-info" type="button"><span class="glyphicon glyphicon-download" aria-hidden="true"></span><span class="hidden-xs">&nbsp;&nbsp;Télechargement</span></button></td>
-							</tr>
-							<tr>
-								<td>Formation Wed</td>
-								<td>28/09/2016</a></td>
-								<td>Paris</td>
-								<td class="text-right"><button class="btn btn-info" type="button"><span class="glyphicon glyphicon-download" aria-hidden="true"></span><span class="hidden-xs">&nbsp;&nbsp;Télechargement</span></button></td>
-							</tr>
-						</tbody>
-					</table>
+				<div class="col-xs-12 border-top-purple formation-table-content">
+					<h2>Formations en cours ou à venir :</h2>
+					<div class="tablescroll">
+                      <table class="table table-condensed">
+                          <thead>
+                             <tr>
+                                 <th>Formation</th>
+                                 <th>Date de début</th>
+                                 <th>Lieu</th>
+                                 <th class="text-right">Télécharger au format pdf</th>
+                               </tr>
+                          </thead>
+                          <tbody>
+                              <?php showFormation()?>
+                          </tbody>
+                      </table>
+					</div>
 				</div>
 			</div>
 			<div class="row list-border">
@@ -59,7 +44,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row historique-table-content">
+			  <div class="tablescroll">
 				<table class="table table-condensed historique-table">
 					<thead>
 					   <tr>
@@ -71,73 +57,41 @@
 						 </tr>
 					</thead>
 					<tbody>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
-						<tr class="historique-table-infos">
-							<td>Formation</td>
-							<td>Nombres de jours</td>
-							<td>Date de départ</td>
-							<td>Lieu actuel</td>
-							<td>Un prestataire</td>
-						</tr>
+						<?php showHistorique(); ?>
 					</tbody>
 				</table>
+			  </div>
 			</div>
 		</div>
 		<div class="col-xs-12 col-sm-6 calendar-mesformations">
-			<div class="row">
-				<div class="col-xs-12 border-top-purple">
-					<h2>Calendrier de mes formations :</h2>
-				</div>
-			</div>
-            <div id='calendar'></div>
+			<div id="card"> 
+              <div class="front"> 
+                <div class="row">
+                    <div class="col-xs-12 border-top-purple">
+                        <h2>Calendrier de mes formations :</h2>
+                    </div>
+                </div>
+                <div id='calendar'></div>
+              </div> 
+              <div class="back">
+                
+              </div> 
+            </div>
 		</div>
 	</div>
 </div>
+<script>
+  $(document).ready(function(){
+    $('#card .back').load('/m2L/controller/ajax_getFormation.php');});
+  $("#card").flip({trigger:'manual'});
+  $('.back').click(function(){
+    $('#card').flip(false);
+  });
+  $('tr.historique-table-infos').click(function(){
+    var $id = $(this).attr('data-id');
+    $.post( "/m2l/controller/ajax_getFormation.php",{id : $id, source: 'mesFormations' }).done(function(data){
+      $('.back').html(data);
+      $('#card').flip(true);
+    });
+  });
+</script>
