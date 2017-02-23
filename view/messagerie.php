@@ -10,7 +10,7 @@
 						<div class="col-xs-12 col-sm-6">
 							<h2>Messages non lus :</h2>
 						</div>
-						<div class="col-sm-6 text-right hidden-xs">
+						<div class="col-sm-6 text-right hidden-xs button-messagerie">
 							<button class="btn btn-success" type="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Nouveau Message</button>
 						</div>
 					</div>
@@ -99,27 +99,32 @@
 				</div>
 			</div>
 		</div>
-		<div class="col-xs-12 col-sm-6 calendar-mesformations">
-			<div class="row">
-				<div class="col-xs-12 border-top-purple">
-					<div class="row">
-						<div class="col-xs-12 col-sm-6">
-							<h2>Titre du message </h2>
-						</div>
-						<div class="col-sm-6 hidden-xs text-right">
-							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Répondre</button>
-							<button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Supprimer</button>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-xs-12">
-					<h3>de : Auteur</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis ipsam a ad suscipit, et, veniam eos minus eligendi, amet nobis maxime dolores cumque delectus corrupti modi consectetur praesentium dignissimos vel!</p>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, reiciendis, magnam. Tempora magnam dicta non sit corporis maiores repellendus sed fugiat, veritatis cumque mollitia vero, amet suscipit nulla quia facilis.</p>
-				</div>
-			</div> 
+		<div class="col-xs-12 col-sm-6" id="flip">
+          <div class="front">
+              <div class="row">
+                  <div class="col-xs-12 border-top-purple">
+                      <div class="row">
+                          <div class="col-xs-12 col-sm-6">
+                              <h2>Titre du message </h2>
+                          </div>
+                          <div class="col-sm-6 hidden-xs text-right button-messagerie">
+                              <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Répondre</button>
+                              <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Supprimer</button>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-xs-12">
+                      <h3>de : Auteur</h3>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis ipsam a ad suscipit, et, veniam eos minus eligendi, amet nobis maxime dolores cumque delectus corrupti modi consectetur praesentium dignissimos vel!</p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut, reiciendis, magnam. Tempora magnam dicta non sit corporis maiores repellendus sed fugiat, veritatis cumque mollitia vero, amet suscipit nulla quia facilis.</p>
+                  </div>
+              </div> 
+          </div>
+          <div class="back">
+            
+          </div>
 		</div>
 	</div>
 </div>

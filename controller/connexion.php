@@ -8,7 +8,8 @@ if(isset($_POST['submit'])){
   else {
     $_SESSION['id'] = $data[1];
     $_SESSION['connecte'] = true;
-    header('location:accueil');
+    header('location:/m2l/accueil');
+    die();
   }
 }
 ?>

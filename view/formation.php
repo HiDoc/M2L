@@ -49,20 +49,5 @@
 	</div>
 </div>
 <script>
-  $('tr').hover(function(){
-  var id = $(this).attr('data-id');
-  $('tr[data-id|='+ id +']').addClass('formation-hover');
-}).mouseout(function(){
-  var id = $(this).attr('data-id');
-  $('tr[data-id|='+ id +']').removeClass('formation-hover');
-});
-$(document).ready(function(){
-  $('.menu-formation').load('controller/ajax_getFormation.php');
-});
-$('tr').click(function(){
-  var $id = $(this).attr('data-id');
-  $.post( "controller/ajax_getFormation.php",{id : $id, source:'formation' }).done(function(data){
-      $('.menu-formation').html(data);
-    });
-  });
+
 </script>

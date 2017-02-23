@@ -27,7 +27,7 @@
       <div class="container-fluid">
         <!-- Nom de l'entreprise et liste pour mobile -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1,#navbar-collapse-2" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="accueil">M2L GESTION</a> </div>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1,#navbar-collapse-2" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="<?=BASE_URL?>/accueil">M2L GESTION</a> </div>
         <!-- Navbar Haut -->
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
           <ul class="nav navbar-nav navbar-right">
@@ -35,7 +35,7 @@
               <ul class="dropdown-menu">
                 <li><a href="profil"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Profil </a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="disconnect"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>&nbsp;&nbsp;Se déconnecter</a></li>
+                <li><a href="<?=BASE_URL?>/disconnect"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>&nbsp;&nbsp;Se déconnecter</a></li>
               </ul>
             </li>
           </ul>
@@ -49,7 +49,7 @@
       <nav class="navbar navbar-static-top navbar-default">
         <div class="container-fluid">
           <!-- Nom de l'entreprise et liste pour mobile -->
-          <div class="navbar-header"> <a class="navbar-brand" href="accueil">M2L GESTION</a> </div>
+          <div class="navbar-header"> <a class="navbar-brand" href="<?=BASE_URL?>/accueil">M2L GESTION</a> </div>
         </div>
         <!-- /.container-fluid -->
       </nav>
@@ -95,27 +95,7 @@
             $('#navbar-collapse-2 > nav > ul > li > a[href$=accueil]').parent().addClass('active');
           else
             $('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual + ']').parent().addClass('active');
-          
-          $(document).ready(function () {
-            $('#calendar').fullCalendar({
-              header: {
-                left: 'prev,next today'
-                , center: 'title'
-                , right: 'month,basicWeek,basicDay'
-              }
-              , events: '/M2L/controller/json_getCalendar.php'
-              , defaultDate: new Date()
-              , navLinks: true // can click day/week names to navigate views
-              , editable: false
-              , eventLimit: true
-              , eventClick: function (calEvent, jsEvent, view) {
-                $.post( "/M2L/controller/ajax_getFormation.php",{id : calEvent.sqlId, source : 'mesFormations' }).done(function(data){
-                  $('.back').html(data);
-                  $("#card").flip(true);
-                });
-              }
-            });
-          });
+          <?php if(isset($script)) echo $script ?>
         </script>
 </body>
 

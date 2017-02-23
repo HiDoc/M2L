@@ -25,5 +25,22 @@ function showFormation(){
     ';
   }
 }
+$script = "  
+$('tr').hover(function(){
+  var id = $(this).attr('data-id');
+  $('tr[data-id|='+ id +']').addClass('formation-hover');
+}).mouseout(function(){
+  var id = $(this).attr('data-id');
+  $('tr[data-id|='+ id +']').removeClass('formation-hover');
+});
+$(document).ready(function(){
+  $('.menu-formation').load('/m2l/controller/ajax_getFormation.php');
+});
+$('tr').click(function(){
+  var thisId = $(this).attr('data-id');
+  $.post('controller/ajax_getFormation.php',{id : thisId, source:'formation' }).done(function(data){
+      $('.menu-formation').html(data);
+    });
+  });";
 ?>
 <?php require "view/formation.php"; ?>
