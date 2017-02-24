@@ -20,15 +20,36 @@ $script =
       });
     }
   });
-});";
+  
+  $('#card .back').load('/m2L/controller/ajax_getFormation.php');
+});
+$('#card').flip({trigger:'manual'});
+$('.back').click(function(){
+  $('#card').flip(false);
+});
+$('tr.historique-table-infos').click(function(){
+  var thisId = $(this).attr('data-id');
+  $.post( '/m2l/controller/ajax_getFormation.php',{id : thisId, source: 'mesFormations' }).done(function(data){
+    $('.back').html(data);
+    $('#card').flip(true);
+  });
+});
+$('tr.formationToGo-table-infos').click(function(){
+  var thisId = $(this).attr('data-id');
+  $.post( '/m2l/controller/ajax_getFormation.php',{id : thisId, source: 'mesFormations' }).done(function(data){
+    $('.back').html(data);
+    $('#card').flip(true);
+  });
+});
+";
 
 function showFormation(){
   $data = getFormation();
   foreach($data as $value){ 
-    echo '<tr data-id="'.$value[3].'">
+    echo '<tr data-id="'.$value[5].'" class="formationToGo-table-infos">
             <td>'.$value[0].'</td>
-            <td>'.$value[1].'</td>
             <td>'.$value[2].'</td>
+            <td>'.$value[3].'</td>
             <td class="text-right"><button class="btn btn-info" type="button"><span class="glyphicon glyphicon-download" aria-hidden="true"></span><span class="hidden-xs">&nbsp;&nbsp;Télechargement</span></button></td>
           </tr>';
   }

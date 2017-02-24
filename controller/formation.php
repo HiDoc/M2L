@@ -38,7 +38,7 @@ $(document).ready(function(){
 });
 $('tr').click(function(){
   var thisId = $(this).attr('data-id');
-  $.post('controller/ajax_getFormation.php',{id : thisId, source:'formation' }).done(function(data){
+  $.post('/m2l/controller/ajax_getFormation.php',{id : thisId, source:'formation' }).done(function(data){
       $('.menu-formation').html(data);
     });
   });";

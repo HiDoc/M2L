@@ -8,7 +8,8 @@
           <div class="row text-center jour-credit">
             <div class="col-xs-6">
               <h3><?= getNumber(); ?></h3>
-              <p>Employés<p>
+              <p>Employés
+                <p>
             </div>
             <div class="col-xs-6">
               <h3>5000 Crédits</h3>
@@ -28,7 +29,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                <?php showEmploye();?>
+                  <?php showEmploye();?>
                 </tbody>
               </table>
             </div>
@@ -40,7 +41,8 @@
       <div class="row text-center jour-credit">
         <div class="col-xs-6">
           <h3>2 jours</h3>
-          <p>de formation<p>
+          <p>de formation
+            <p>
         </div>
         <div class="col-xs-6">
           <h3>5000 Crédits</h3>
@@ -60,7 +62,7 @@
               </tr>
             </thead>
             <tbody>
-            <?php getEmployeFormation(); ?>
+              <?php getEmployeFormation(); ?>
             </tbody>
           </table>
         </div>

@@ -5,7 +5,7 @@
 function getFormation(){
   $bdd = $GLOBALS['bdd'];
   $query = $bdd->query("
-  SELECT titre, date_f, lieu, id_f
+  SELECT titre, duree, date_f, lieu, validate, id_f
   FROM formation, suivreFormation 
   WHERE e_id = ".$_SESSION['id']."
   AND f_id = id_f
@@ -24,6 +24,7 @@ function getHistorique(){
   WHERE e_id = ".$_SESSION['id']."
   AND f_id = id_f
   AND p_id = id_p
+  AND date_add(date_f, interval duree second) < now()
   ORDER BY id_f DESC");
   return $query->fetchAll();
 }

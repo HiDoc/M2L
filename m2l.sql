@@ -1,7 +1,9 @@
+use M2L;
 drop table if exists associer,tag, suivreFormation, formation, prestataire,employe,typeEmploye;
 drop procedure if exists ajouter_formation;
 drop procedure if exists insert_user;
-use M2L;
+drop procedure if exists assoc_formation;
+
 create table if not exists tag(
 id_tag int primary key not null auto_increment,
 libelle varchar(64)
@@ -78,7 +80,7 @@ BEGIN
     DECLARE creditFormation int DEFAULT 500;
     DECLARE description VARCHAR(64) DEFAULT 'zhauihzea ndlz abnhjkldb qnhd kjahznjkle bhzau';
     DECLARE prerequis VARCHAR(64) DEFAULT 'zhauihzea ndlz abnhjkldb qnhd kjahznjkle bhzau';
-    DECLARE id_presta int DEFAULT v_i%5;
+    DECLARE id_presta int DEFAULT 1;
     REPEAT
 		insert into prestataire values(default, 'un prestataire', 15, 'rue du champ', 'PARIS', 75020);
 		REPEAT
@@ -100,15 +102,20 @@ BEGIN
 DECLARE v_i INT DEFAULT 1;
 REPEAT
 		REPEAT
-			insert into employe values(default, 'salut' , 'cestmoi','cestmoi@gmail.cm', sha1('azerty'), default, default, 1, 1);
+			insert into employe values(default, 'salut' , 'cestmoi', concat('test', v_i,'@gmail.com'), sha1('azerty'), default, default, 1, 1);
 			SET v_i = v_i + 1;    
 		UNTIL v_i > nbr END REPEAT;
 	UNTIL v_i > nbr END REPEAT;
 END $$
 DELIMITER ;
-
+CALL insert_user(50);
+UPDATE employe set superieur_id = superieur_id%5;
 CALL ajouter_formation(50);
-update formation set date_f = '2017-02-22 14:03:03';
+update formation set date_f = '2017-02-21 14:03:03' WHERE id_f < 10;
+update formation set date_f = '2017-02-25 14:03:03' WHERE id_f BETWEEN 11 AND 20;
+update formation set date_f = '2017-03-05 14:03:03' WHERE id_f BETWEEN 21 AND 30;
+update formation set date_f = '2017-03-08 14:03:03' WHERE id_f BETWEEN 31 AND 40;
+update formation set date_f = '2017-03-11 14:03:03' WHERE id_f BETWEEN 41 AND 50;
 
 DELIMITER $$
 CREATE PROCEDURE assoc_formation(nbr int)
@@ -122,3 +129,7 @@ END $$
 DELIMITER ;
 
 CALL assoc_formation(50);
+
+select * from employe;
+
+select * from employe where (id_e % 5) = 0;

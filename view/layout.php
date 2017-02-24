@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Icone et titre -->
-  <link rel="icon" type="image/png" href="view/ressources/img/icon.png" />
+  <link rel="icon" type="image/png" href="<?=BASE_URL?>/view/ressources/img/icon.png" />
   <title>M2L Gestion</title>
   <!-- Mise en page / CSS -->
   <link href="<?=BASE_URL?>/view/css/bootstrap.css" rel="stylesheet">

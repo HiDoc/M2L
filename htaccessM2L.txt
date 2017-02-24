@@ -5,7 +5,6 @@ RewriteRule ^(.*)$ http://%{HTTP_HOST}%{REQUEST_URI}/ [R=301,L]
  
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([a-zA-Z]{1,20})([\/]?)$ index.php?p=$1
-RewriteRule ^([a-zA-Z]{1,20})([\/]?)([0-9]{0,4})([\/?])$ index.php?p=$1&employe=$3
-
-ErrorDocument 404 /M2L/index.php?p=404
+//Enlever le commentaire et mettre son nom à la place du mien
+RewriteRule ^([a-zA-Z]{1,20})([\/]?)$ /~fmadura/index.php?p=$1
+ErrorDocument 404 /~fmadura/index.php?p=404

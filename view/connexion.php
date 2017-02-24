@@ -1,6 +1,6 @@
 <div class="row connexion-full">
   <div class="cols-xs-12 col-sm-3 col-sm-offset-6">
-   <h2>Se connecter</h2>
+    <h2>Se connecter</h2>
     <form method="POST">
       <div class="form-group">
         <label for="exampleInputEmail1">Adresse Email</label>

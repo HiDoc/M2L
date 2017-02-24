@@ -27,8 +27,7 @@ function lastFormation(){
   FROM formation f, prestataire 
   WHERE id_f = (SELECT MAX(id_f) 
                 FROM formation)
-  AND p_id = id_p
-  AND date_f > now()');
+  AND p_id = id_p');
   return $query->fetch();
 }
 ?>

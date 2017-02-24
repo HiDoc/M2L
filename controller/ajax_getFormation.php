@@ -8,7 +8,7 @@ function buttonToShow(){
         new Button('info','download');  
         break;
       case 'formation' :
-        new Button('success','download');  
+        new Button('success','inscription');  
         new Button('info','download');
           break;
       default :
