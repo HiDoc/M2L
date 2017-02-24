@@ -29,7 +29,7 @@
         <div class="col-xs-12 col-sm-6">
           <div class="input-group">
             <input type="text" class="form-control" placeholder="Rechercher une formation..."> <span class="input-group-btn">
-							<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
             </span>
           </div>
           <!-- /input-group -->

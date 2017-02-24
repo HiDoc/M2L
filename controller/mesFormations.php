@@ -27,14 +27,7 @@ $('#card').flip({trigger:'manual'});
 $('.back').click(function(){
   $('#card').flip(false);
 });
-$('tr.historique-table-infos').click(function(){
-  var thisId = $(this).attr('data-id');
-  $.post( '/m2l/controller/ajax_getFormation.php',{id : thisId, source: 'mesFormations' }).done(function(data){
-    $('.back').html(data);
-    $('#card').flip(true);
-  });
-});
-$('tr.formationToGo-table-infos').click(function(){
+$('tr.historique-table-infos, tr.formationToGo-table-infos').click(function(){
   var thisId = $(this).attr('data-id');
   $.post( '/m2l/controller/ajax_getFormation.php',{id : thisId, source: 'mesFormations' }).done(function(data){
     $('.back').html(data);

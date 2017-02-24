@@ -2,9 +2,10 @@
 require('../model/ajax_getFormation.php');
 require('../core/class.button.php');
 if(isset($_POST['source'])){  
-function buttonToShow(){
+  function buttonToShow(){
     switch($_POST['source']){
       case 'mesFormations' :
+        new Button('success','fiche');  
         new Button('info','download');  
         break;
       case 'formation' :
@@ -12,21 +13,20 @@ function buttonToShow(){
         new Button('info','download');
           break;
       default :
-        "Bouton inconnu";
         break;
     }
   }
 }
-else {
-    function buttonToShow(){ 
+else { 
+  function buttonToShow(){
+    //TODO : mettre une view de base
   }
 }
-if(isset($_POST['id'])){
+  
+if(isset($_POST['id']))
   $data = getFormation($_POST['id']);
-  require('../view/ajax_getFormation.php');
-}
-else {
+else 
   $data = lastFormation();
-  require('../view/ajax_getFormation.php');
-}
+
+require('../view/ajax_getFormation.php');
 ?>

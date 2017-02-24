@@ -1,9 +1,12 @@
 <?php
 session_start();
-require_once "controller/bdd.php";
-require_once "core/class.button.php";
-define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
+require_once "controller/bdd.php";
+// Require de chaque fichier du dossier core
+foreach (glob("/core/*.php") as $filename)
+    require ($filename);
+
+define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
 if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){
   if(!isset($_GET['p']) || $_GET['p'] == "" || $_GET['p'] == 'login' || $_GET['p'] == 'bdd') {

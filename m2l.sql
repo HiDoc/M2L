@@ -72,7 +72,7 @@ DELIMITER |
 CREATE PROCEDURE ajouter_formation(nbr int)      
 BEGIN
 	DECLARE v_i INT DEFAULT 1;
-	DECLARE titre VARCHAR(64) DEFAULT 'titre formation';
+	DECLARE titre VARCHAR(64) DEFAULT 'formation';
 	DECLARE date_f DATETIME DEFAULT now();
     DECLARE duree int DEFAULT 3600*48;
     DECLARE lieu varchar(64) default 'Paris';
@@ -84,7 +84,7 @@ BEGIN
     REPEAT
 		insert into prestataire values(default, 'un prestataire', 15, 'rue du champ', 'PARIS', 75020);
 		REPEAT
-			insert into formation values(default, titre , date_f, duree, creditJour,creditFormation,lieu, description,prerequis, id_presta);
+			insert into formation values(default, concat(titre, ' ', v_i) , date_f, duree, creditJour,creditFormation,lieu, description,prerequis, id_presta);
 			SET v_i = v_i + 1;    
 		UNTIL v_i > nbr END REPEAT;
 	UNTIL v_i > nbr END REPEAT;
@@ -109,8 +109,15 @@ REPEAT
 END $$
 DELIMITER ;
 CALL insert_user(50);
-UPDATE employe set superieur_id = superieur_id%5;
+
+UPDATE employe AS a
+INNER JOIN employe AS b ON a.id_e = b.id_e
+SET a.superieur_id = (b.id_e%5 +1)
+where a.id_e > 5
+and b.id_e > 5;
+
 CALL ajouter_formation(50);
+
 update formation set date_f = '2017-02-21 14:03:03' WHERE id_f < 10;
 update formation set date_f = '2017-02-25 14:03:03' WHERE id_f BETWEEN 11 AND 20;
 update formation set date_f = '2017-03-05 14:03:03' WHERE id_f BETWEEN 21 AND 30;
@@ -131,5 +138,3 @@ DELIMITER ;
 CALL assoc_formation(50);
 
 select * from employe;
-
-select * from employe where (id_e % 5) = 0;
