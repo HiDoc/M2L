@@ -138,3 +138,4 @@ DELIMITER ;
 CALL assoc_formation(50);
 
 select * from employe;
+update suivreFormation set e_id = f_id;
