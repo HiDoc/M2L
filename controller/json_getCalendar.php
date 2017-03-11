@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('../model/json_getCalendar.php');
 $data = getFormation();
 $dataDone = getHistorique();
@@ -13,7 +14,8 @@ foreach($data as $value){
     'title' => $value[0], 
     'start' => date_format($date,'Y-m-d'), 
     'end' => date_format($date->add(new dateinterval('PT'.$value[1].'S')),'Y-m-d'), 
-    'sqlId' => $value[5] 
+    'sqlId' => $value[5],
+    'color' => ($value[4] ? '#5cb85c' : '#f0ad4e')
   );
   array_push($array,$newEvent);
 }

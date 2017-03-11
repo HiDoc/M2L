@@ -61,8 +61,26 @@
                 <th>Valider la formation</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id='toValid'>
               <?php getEmployeFormation(); ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Formation validée :</h2>
+          <table class="table table-condensed historique-table">
+            <thead>
+              <tr>
+                <th>Nom de la formation</th>
+                <th>Date de la formation</th>
+                <th>Durée de la formation</th>
+                <th>Invalider la formation</th>
+              </tr>
+            </thead>
+            <tbody id="toUnvalid">
+              <?php getEmployeFormationValid(); ?>
             </tbody>
           </table>
         </div>

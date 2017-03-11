@@ -1,6 +1,6 @@
 <?php 
   include('class.glyphicon.php');
-  class Button{
+  class Button {
     /**
       * Constructeur de la classe
       * @return String 
@@ -10,28 +10,49 @@
     function __construct(){
       $args = func_get_args();
       $newButton = '<button class="btn btn-';
-      $newButton .= $args[0].' type = "button">';
+      $newButton .= $args[0].'"';
+      if(isset($args[2])) $newButton .=' data-id="'.$args[2].'"';
+      $newButton .=' type = "button">';
       
       // Nom du glyphicon à utiliser
-      if($args[1] == 'download')
-        $newButton .=  (new Glyph('download'))->show();
-      elseif($args[1] == 'fiche')
-        $newButton .=  (new Glyph('tags'))->show();
-      else
-        $newButton .= (new Glyph('ok'))->show();
+        $newButton .=  Glyph::build(self::builder($args[1])[0]);
       
       // Contenu texte du bouton
-      if($args[1] == 'download')
-        $newButton .= ' Télécharger le récapitulatif au format PDF ';
-      elseif($args[1] == 'fiche')
-        $newButton .= '&nbsp Voir la fiche';
-      else
-        $newButton .= ' S\'inscrire';
+      $newButton .= self::builder($args[1])[1];
       
       $newButton .= '</button>';
       
       echo $newButton;
     }
-    
+    function builder($name){
+      $nameReturn = array();
+      switch($name){
+        case 'download' :
+          $nameReturn[0] = 'download';
+          $nameReturn[1] = ' Télécharger au format PDF';
+          break;
+        case 'fiche' :
+          $nameReturn[0] = 'tags';
+          $nameReturn[1] = ' Voir la fiche';
+          break;
+        case 'toValid' :
+          $nameReturn[0] = 'pencil';
+          $nameReturn[1] = ' En attente de validation';
+          break;
+        case 'failed' :
+          $nameReturn[0] = 'remove';
+          $nameReturn[1] = ' Erreur d\'inscription';
+          break;
+        case 'points' :
+          $nameReturn[0] = 'asterisk';
+          $nameReturn[1] = ' Vous n\'avez pas assez de crédits';
+          break;
+        default :
+          $nameReturn[0] = 'ok';
+          $nameReturn[1] = ' S\'inscrire';
+          break;
+      }
+      return $nameReturn;
+    }
   }
 ?>

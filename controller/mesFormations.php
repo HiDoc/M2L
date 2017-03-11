@@ -38,40 +38,41 @@ $('tr.historique-table-infos, tr.formationToGo-table-infos').click(function(){
 
 function showFormation(){
   $data = getFormation();
+  if(!isset($data[0])){
+    echo "<tr><td colspan='5'><div class=\"alert alert-info\"> Aucune participation à une formation n'a été trouvé</div></td></tr>";
+  }
   foreach($data as $value){ 
     echo '<tr data-id="'.$value[5].'" class="formationToGo-table-infos">
-            <td>'.$value[0].'</td>
-            <td>'.$value[2].'</td>
-            <td>'.$value[3].'</td>
-            <td class="text-right"><button class="btn btn-info" type="button"><span class="glyphicon glyphicon-download" aria-hidden="true"></span><span class="hidden-xs">&nbsp;&nbsp;Télechargement</span></button></td>
+            <td class="text-left">'.$value[0].'</td>
+            <td class="text-center">'.$value[2].'</td>
+            <td class="text-center">'.$value[3].'</td>
+            <td class="text-center">'. coloriserTD($value[4]). '</td>
+            <td class="text-center"><button class="btn btn-info" type="button"><span class="glyphicon glyphicon-download" aria-hidden="true"></span><span class="hidden-xs">&nbsp;&nbsp;Télechargement</span></button></td>
           </tr>';
   }
 }
 function showHistorique(){
   $data = getHistorique();
+  if(!isset($data[0])){
+    echo "<tr><td colspan='5'><div class=\"alert alert-info\"> Aucune participation à une formation n'a été trouvé</div></td></tr>";
+  }
   foreach($data as $value){
-    echo '<tr class="historique-table-infos" data-id="'.$value[5].'">
-            <td>'.$value[0].'</td>
-            <td>'.round($value[1]/86400).' jours</td>
-            <td>'.$value[2].'</td>
-            <td>'.$value[3].'</td>
-            <td>'.$value[4].'</td>
-          </tr>';
-    }
+      echo '<tr class="historique-table-infos" data-id="'.$value[5].'">
+              <td>'.$value[0].'</td>
+              <td>'.round($value[1]/86400).' jours</td>
+              <td>'.$value[2].'</td>
+              <td>'.$value[3].'</td>
+              <td>'.$value[4].'</td>
+            </tr>';
+  }
 }
-function coloriserTR($data){
-  $color = 'default';
-    
-  // Vérifie si la formation est passée
-  if(strtotime(($data[1] + $data[2]) > time())):
-    $color = 'active';
-  else :
-    $color = 'success';
-  endif;
-  
-  //Returne une ligne colorisée
-  echo '<tr data-id="'.$data[0].'" class="'.$color.'">';
-  
+function coloriserTD($data){
+  $span = "<span class ='label label-";
+  $span .= $data ? 'success' : 'warning';
+  $span .= "'>";
+  $span .= $data ? 'Validé' : 'En attente de validation';
+  $span .= "</span>";
+  return $span;
 }
 ?>
 <?php require "view/mesFormations.php" ?>

@@ -1,7 +1,7 @@
 <?php require "model/formation.php"; ?>
 <?php 
 /**
-  * Affiche les formations sous forme de tableau 
+  * Affiche les formations sous forme de tableau dans la partie droite
   */
 function showFormation(){
   $data = getFormation();
@@ -25,7 +25,21 @@ function showFormation(){
     ';
   }
 }
+/**
+  * Script de la page
+  * TODO : Définir l'utilisation
+  */
 $script = "  
+$(document).ready(function(){
+  $('.menu-formation').load('/m2l/controller/ajax_getFormation.php',function(){
+    $('button.btn-success').click(function(){
+      $.post('/m2l/controller/ajax_inscriptionFormation.php',{id : $(this).attr('data-id') }).done(function(data){
+        $('#btn-div button:first-of-type').remove();
+        $('#btn-div').prepend(data);
+      });
+    });
+  });
+});
 $('tr').hover(function(){
   var id = $(this).attr('data-id');
   $('tr[data-id|='+ id +']').addClass('formation-hover');
@@ -33,14 +47,23 @@ $('tr').hover(function(){
   var id = $(this).attr('data-id');
   $('tr[data-id|='+ id +']').removeClass('formation-hover');
 });
-$(document).ready(function(){
-  $('.menu-formation').load('/m2l/controller/ajax_getFormation.php');
-});
 $('tr').click(function(){
   var thisId = $(this).attr('data-id');
   $.post('/m2l/controller/ajax_getFormation.php',{id : thisId, source:'formation' }).done(function(data){
       $('.menu-formation').html(data);
+      $('button.btn-success').click(function(){
+        $.post('/m2l/controller/ajax_inscriptionFormation.php',{id : $(this).attr('data-id') }).done(function(data){
+          $('#btn-div button:first-of-type').remove();
+          $('#btn-div').prepend(data);
+        });
+      });
     });
-  });";
+  });
+  $('#search').click(function(){
+  $.post('/m2l/controller/ajax_recherche.php',{ keywords : $(\"#keywords\").val() }).done(function(data){
+    $('tbody').html(data);
+    reload();
+  });
+});";
 ?>
 <?php require "view/formation.php"; ?>

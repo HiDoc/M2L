@@ -1,3 +1,4 @@
+<?php require_once('core/class.glyphicon.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -63,14 +64,14 @@
                     <!-- Navbar Gauche -->
                     <nav>
                       <ul class="nav nav-pills nav-stacked">
-                        <li role="menuitem"><a href="<?=BASE_URL?>/accueil"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbsp;&nbsp;Accueil</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/formation"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;&nbsp;Offres de formations</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/mesFormations"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>&nbsp;&nbsp;Mes formations</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/messagerie"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Messages</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/employe"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>&nbsp;&nbsp;Employés</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/ficheFormation"><span class="glyphicon glyphicon-file" aria-hidden="true"></span>&nbsp;&nbsp;Fiche de formation</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/recherche"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Recherche</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/statistique"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>&nbsp;&nbsp;Statistique</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/accueil"><?=Glyph::build('home')?>&nbsp;&nbsp;Accueil</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/formation"><?=Glyph::build('tags')?>&nbsp;&nbsp;Offres de formations</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/mesFormations"><?=Glyph::build('list-alt')?>&nbsp;&nbsp;Mes formations</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/messagerie"><?=Glyph::build('envelope')?>&nbsp;&nbsp;Messages</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/employe"><?=Glyph::build('user')?>&nbsp;&nbsp;Gestion des employés</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/ficheFormation"><?=Glyph::build('file')?>&nbsp;&nbsp;Fiche de formation</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/recherche"><?=Glyph::build('search')?>&nbsp;&nbsp;Recherche</a></li>
+                        <li role="menuitem"><a href="<?=BASE_URL?>/statistique"><?=Glyph::build('search')?>&nbsp;&nbsp;Statistique</a></li>
                       </ul>
                     </nav>
                   </div>
@@ -90,6 +91,14 @@
         <script src='<?=BASE_URL?>/view/js/moment.min.js'></script>
         <script src='<?=BASE_URL?>/view/js/fullcalendar.min.js'></script>
         <script>
+          function reload(){
+            var script = $("script:last-of-type").text();
+            $("script:last-of-type").remove();
+            var s = document.createElement("script");
+              s.type = "text/javascript";
+              s.innerHTML = script;
+              $("body").append(s);
+          }
           var actual = $('body').attr('class').substr(9);
           if(actual == '')
             $('#navbar-collapse-2 > nav > ul > li > a[href$=accueil]').parent().addClass('active');
@@ -97,6 +106,5 @@
             $('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual + ']').parent().addClass('active');
           <?php if(isset($script)) echo $script ?>
         </script>
-</body>
-
+  </body>
 </html>

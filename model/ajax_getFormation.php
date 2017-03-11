@@ -12,7 +12,15 @@ function retrieveFormation($name){
     $q .= 'WHERE id_f = :id AND p_id = id_p';
   }
   else {
-    $q .= 'WHERE id_f = (SELECT MAX(id_f) FROM formation)AND p_id = id_p';
+    $q .= ' WHERE NOT EXISTS (
+              SELECT * 
+              FROM suivreformation  
+              WHERE e_id = ' . $_SESSION['id'] . ' 
+              AND f.id_f = suivreFormation.f_id) 
+            AND date_f > now() 
+            ORDER BY id_f DESC
+            LIMIT 1
+                              ';
   }
   return $q;
 }
@@ -36,5 +44,8 @@ function lastFormation(){
   $bdd = $GLOBALS['bdd'];
   $query = $bdd->query(retrieveFormation('last'));
   return $query->fetch();
+}
+function lastID(){
+  return lastFormation()['id'];
 }
 ?>

@@ -5,8 +5,8 @@
 function getFormation(){
   $bdd = $GLOBALS['bdd'];
   $query = $bdd->query("
-  SELECT titre, duree, date_f, lieu, validate, id_f
-  FROM formation, suivreFormation 
+  SELECT titre, duree, date(date_f), lieu, validate, id_f
+  FROM formation, suivreFormation
   WHERE e_id = ".$_SESSION['id']."
   AND f_id = id_f
   AND date_f > now()

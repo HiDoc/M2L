@@ -10,10 +10,11 @@
             <table class="table table-condensed">
               <thead>
                 <tr>
-                  <th>Formation</th>
-                  <th>Date de début</th>
-                  <th>Lieu</th>
-                  <th class="text-right">Télécharger au format pdf</th>
+                  <th class="text-left">Formation</th>
+                  <th class="text-center">Date de début</th>
+                  <th class="text-center">Lieu</th>
+                  <th class="text-center">État</th>
+                  <th class="text-center">Télécharger au format pdf</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,7 +53,7 @@
               <tr>
                 <th>Intitulé de la formation</th>
                 <th>Durée</th>
-                <th>Date</th>
+                <th>Date / Heure</th>
                 <th>Lieu</th>
                 <th>Prestataire</th>
               </tr>

@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require('../model/ajax_getFormation.php');
 require('../core/class.button.php');
 if(isset($_POST['source'])){  
@@ -6,10 +7,12 @@ if(isset($_POST['source'])){
     switch($_POST['source']){
       case 'mesFormations' :
         new Button('success','fiche');  
+        echo ' ';
         new Button('info','download');  
         break;
       case 'formation' :
-        new Button('success','inscription');  
+        new Button('success','inscription',$_POST['id']);  
+        echo ' ';
         new Button('info','download');
           break;
       default :
@@ -19,7 +22,9 @@ if(isset($_POST['source'])){
 }
 else { 
   function buttonToShow(){
-    //TODO : mettre une view de base
+    new Button('success','inscription', lastId());
+    echo ' ';
+    new Button('info','download');
   }
 }
   

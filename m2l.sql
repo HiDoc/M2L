@@ -94,7 +94,7 @@ DELIMITER ;
 
 insert into typeemploye values(default, 'admin');
 insert into typeemploye values(default, 'utilisateur');
-insert into employe values (default,'admin',null, 'admin@m2l.com', sha1('admin'), null, null, 1,null);
+insert into employe values (default,'admin',null, 'admin@m2l.com', sha1('admin'), default, default, 1,null);
 
 DELIMITER $$
 CREATE PROCEDURE insert_user(nbr int)
@@ -118,11 +118,7 @@ and b.id_e > 5;
 
 CALL ajouter_formation(50);
 
-update formation set date_f = '2017-02-21 14:03:03' WHERE id_f < 10;
-update formation set date_f = '2017-02-25 14:03:03' WHERE id_f BETWEEN 11 AND 20;
-update formation set date_f = '2017-03-05 14:03:03' WHERE id_f BETWEEN 21 AND 30;
-update formation set date_f = '2017-03-08 14:03:03' WHERE id_f BETWEEN 31 AND 40;
-update formation set date_f = '2017-03-11 14:03:03' WHERE id_f BETWEEN 41 AND 50;
+update formation set date_f = concat('2017-03-',id_f%31);
 
 DELIMITER $$
 CREATE PROCEDURE assoc_formation(nbr int)
@@ -136,6 +132,23 @@ END $$
 DELIMITER ;
 
 CALL assoc_formation(50);
+select * from suivreFormation where e_id = 1;
+delete from suivreFormation where e_id = 1;
+SELECT titre, duree, date(date_f), lieu, nom, description, prerequis, id_f 
+  FROM prestataire p, formation f
+  WHERE NOT EXISTS (SELECT * 
+					FROM suivreformation  
+					WHERE e_id = 1 
+					AND f.id_f = suivreFormation.f_id) 
+ORDER BY id_f DESC
+LIMIT 1;
+select * from employe where id_e = 1;
 
-select * from employe;
-update suivreFormation set e_id = f_id;
+SELECT * FROM formation, prestataire 
+    WHERE titre LIKE '%formation%' 
+    OR date_f LIKE '%formation%' 
+    OR lieu LIKE '%formation%'
+    OR description LIKE '%formation%'
+    OR prerequis LIKE '%formation%'
+    OR nom LIKE '%formation%'
+    AND p_id = id_p;

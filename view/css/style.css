@@ -71,7 +71,7 @@ body .navbar-default .navbar-nav > li > a:hover{
   background-image: none;
   color: white;
 }
-
+/*
 .fc-event .fc-content,
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
@@ -82,7 +82,7 @@ body .navbar-default .navbar-nav > li > a:hover{
 .fc-event {
   border: 1px solid #366899 !important;
 }
-
+*/
 @media (min-width: 640px) {
   .menu-formation {
     border-right: 30px solid #E8E8E8;
@@ -194,6 +194,14 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
 .template-employe table{
   table-layout: fixed;
 }
+.template-employe .table-condensed > thead > tr > th,
+.template-employe .table-condensed > tbody > tr > th,
+.template-employe .table-condensed > tfoot > tr > th,
+.template-employe .table-condensed > thead > tr > td,
+.template-employe .table-condensed > tbody > tr > td,
+.template-employe .table-condensed > tfoot > tr > td {
+  vertical-align: middle;
+}
 /* TOUTES LES FORMATIONS */
 .formation-table-infos.formation-hover{
   background-color:rgba(54, 104, 153, 0.78);
@@ -225,7 +233,14 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
 .template-mesFormations #card .back{
   background-color:white;
 }
-
+.template-mesFormations .table-condensed > thead > tr > th,
+.template-mesFormations .table-condensed > tbody > tr > th,
+.template-mesFormations .table-condensed > tfoot > tr > th,
+.template-mesFormations .table-condensed > thead > tr > td,
+.template-mesFormations .table-condensed > tbody > tr > td,
+.template-mesFormations .table-condensed > tfoot > tr > td {
+  vertical-align: middle;
+}
 /* MESSAGERIE */
 .template-messagerie .button-messagerie{
   margin-top:10px;
