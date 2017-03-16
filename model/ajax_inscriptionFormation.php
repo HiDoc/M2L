@@ -11,23 +11,18 @@ function getPoints($name, $id){
   $tabId = 'id_'.$name[0]; 
   $queryP = $bdd->prepare('
     SELECT creditPoint, creditJour 
-    FROM :name  
-    WHERE :id =:user
+    FROM '.$name.' WHERE '.$tabId.' = :user
   ');
   $queryP->bindValue(':user', $id, PDO::PARAM_INT);
-  $queryP->bindValue(':name', $name, PDO::PARAM_STR);
-  $queryP->bindValue(':id', $tabId, PDO::PARAM_STR);
   $queryP->execute();
-  echo 'SELECT creditPoint, creditJour FROM '.$name.' WHERE '.'id_'.$name[0].' ='.$id;
-  
   return $queryP->fetch();
 }
-function updatePoints($data, $user, $formation){
+function updatePoints($data, $user){
   $bdd = $GLOBALS['bdd'];
-  $update = $bdd->prepare('UPDATE employe set creditJour =:jour, creditPoint =:point WHERE id_e = :id');
-  $update->bindValue(':point', $data[1], PDO::PARAM_INT);  
-  $update->bindValue(':jour', $data[2], PDO::PARAM_INT);  
-  $update->bindValue(':id', $user, PDO::PARAM_INT);
-    return $update->execute();
+  $update = $bdd->query('
+  UPDATE employe 
+  SET creditJour = '.$data[2].', 
+  creditPoint = '.$data[1].' 
+  WHERE id_e = '.$user);
 }
 ?>

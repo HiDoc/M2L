@@ -26,20 +26,56 @@ function showFormation(){
   }
 }
 /**
-  * Script de la page
+  * Script de la page à rafraichir si une 
+  * nouvelle requête à été exécutée
   * TODO : Définir l'utilisation
   */
-$script = "  
+$scriptBase = "  
 $(document).ready(function(){
   $('.menu-formation').load('/m2l/controller/ajax_getFormation.php',function(){
     $('button.btn-success').click(function(){
-      $.post('/m2l/controller/ajax_inscriptionFormation.php',{id : $(this).attr('data-id') }).done(function(data){
-        $('#btn-div button:first-of-type').remove();
-        $('#btn-div').prepend(data);
+      $.post('/m2l/controller/ajax_inscriptionFormation.php', {id : $(this).attr('data-id') }, null, \"json\").done(function(data){
+          $('#btn-div button:first-of-type').remove();
+          $('#btn-div').prepend(data);
+          $('div.credit-jour > div:nth-child(1) h3').text(data.cj + ' Jours');
+          $('div.credit-jour > div:nth-child(2) h3').text(data.cp + ' Crédits');
+        });
+    });
+  });
+  $('#search').click(function(){
+    var getType = $('button.active[data-display]').attr('data-display');
+    $.post('/m2l/controller/ajax_recherche.php',{ keywords : $(\"#keywords\").val(),type : getType }).done(function(data){
+      $('tbody').html(data);
+      reload();
+      });
+  });
+  $('#keywords').keypress(function(event){
+    var getType = $('button.active[data-display]').attr('data-display');
+    if ( event.which == 13) {
+      $.post('/m2l/controller/ajax_recherche.php',{ keywords : $(\"#keywords\").val(), type : getType }).done(function(data){
+      $('tbody').html(data);
+      reload();
+      });
+    }
+  });
+  $('button[data-display~=thumbnail], button[data-display~=list]').click(function(event){
+    $('button[data-display~=thumbnail], button[data-display~=list]').removeClass('active');
+    $(this).addClass('active');
+    var displayBox = $(this).attr('data-display') == 'list';
+    event.preventDefault;
+    $.post('/m2l/controller/ajax_recherche.php',{ keywords : $.trim($('#keywords').val()), type : $(this).attr('data-display')}).done(
+      function(data) { 
+        if(displayBox) 
+          $('thead').fadeIn(200);
+        else
+          $('thead').fadeOut(200);
+        $('tbody').html(data);
+        reload();
       });
     });
   });
-});
+  ";
+$script = "
 $('tr').hover(function(){
   var id = $(this).attr('data-id');
   $('tr[data-id|='+ id +']').addClass('formation-hover');
@@ -47,23 +83,20 @@ $('tr').hover(function(){
   var id = $(this).attr('data-id');
   $('tr[data-id|='+ id +']').removeClass('formation-hover');
 });
-$('tr').click(function(){
+$('tr, button[data-id]').click(function(){
   var thisId = $(this).attr('data-id');
   $.post('/m2l/controller/ajax_getFormation.php',{id : thisId, source:'formation' }).done(function(data){
       $('.menu-formation').html(data);
       $('button.btn-success').click(function(){
-        $.post('/m2l/controller/ajax_inscriptionFormation.php',{id : $(this).attr('data-id') }).done(function(data){
+        $.post('/m2l/controller/ajax_inscriptionFormation.php', {id : $(this).attr('data-id') }, \"json\").done(function(data){
           $('#btn-div button:first-of-type').remove();
           $('#btn-div').prepend(data);
+          $('div.credit-jour > div:nth-child(1) h3').text(data.cj + ' Jours');
+          $('div.credit-jour > div:nth-child(2) h3').text(data.cp + ' Crédits');
         });
       });
     });
   });
-  $('#search').click(function(){
-  $.post('/m2l/controller/ajax_recherche.php',{ keywords : $(\"#keywords\").val() }).done(function(data){
-    $('tbody').html(data);
-    reload();
-  });
-});";
+";
 ?>
 <?php require "view/formation.php"; ?>

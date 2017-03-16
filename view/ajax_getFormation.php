@@ -1,11 +1,11 @@
 <div class="row text-center jour-credit">
   <div class="col-xs-6">
-    <h3>15 jours</h3>
+    <h3><?= unserialize($_SESSION['user'])->getCreditJour()?> jours</h3>
     <p>de formations restants
       <p>
   </div>
   <div class="col-xs-6">
-    <h3>5000 Crédits</h3>
+    <h3><?= unserialize($_SESSION['user'])->getCreditPoint()?> Crédits</h3>
     <p>de formations restants</p>
   </div>
 </div>

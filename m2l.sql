@@ -119,7 +119,6 @@ and b.id_e > 5;
 CALL ajouter_formation(50);
 
 update formation set date_f = concat('2017-03-',id_f%31);
-
 DELIMITER $$
 CREATE PROCEDURE assoc_formation(nbr int)
 BEGIN
@@ -130,25 +129,13 @@ DECLARE v_i INT DEFAULT 1;
 	UNTIL v_i > nbr END REPEAT;
 END $$
 DELIMITER ;
-
-CALL assoc_formation(50);
-select * from suivreFormation where e_id = 1;
-delete from suivreFormation where e_id = 1;
-SELECT titre, duree, date(date_f), lieu, nom, description, prerequis, id_f 
-  FROM prestataire p, formation f
-  WHERE NOT EXISTS (SELECT * 
-					FROM suivreformation  
-					WHERE e_id = 1 
-					AND f.id_f = suivreFormation.f_id) 
-ORDER BY id_f DESC
-LIMIT 1;
 select * from employe where id_e = 1;
-
-SELECT * FROM formation, prestataire 
-    WHERE titre LIKE '%formation%' 
-    OR date_f LIKE '%formation%' 
-    OR lieu LIKE '%formation%'
-    OR description LIKE '%formation%'
-    OR prerequis LIKE '%formation%'
-    OR nom LIKE '%formation%'
-    AND p_id = id_p;
+CALL assoc_formation(50);
+use m2l;
+update employe set creditJour = 15;
+delete from suivreformation where e_id = 1;
+select * from employe;
+ UPDATE employe 
+  SET creditJour = 13, creditPoint = 50000 
+  WHERE id_e = 1;
+  

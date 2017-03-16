@@ -9,8 +9,8 @@ function getFormation(){
   FROM formation f, prestataire p
   WHERE date_f > now()
   AND p_id = id_p
-  AND NOT EXISTS (SELECT * from suivreformation where e_id = ' . $_SESSION['id'] . ' and f.id_f = suivreFormation.f_id)
-  ORDER BY id_f DESC');
+  AND NOT EXISTS (SELECT * from suivreformation where e_id = ' . unserialize($_SESSION['user'])->getId_e() . ' and f.id_f = suivreFormation.f_id)
+  ORDER BY date_f DESC');
   return $query->fetchAll();
 }
 ?>

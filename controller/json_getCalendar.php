@@ -1,4 +1,5 @@
 <?php
+require_once('../core/class.User.php');
 session_start();
 require('../model/json_getCalendar.php');
 $data = getFormation();

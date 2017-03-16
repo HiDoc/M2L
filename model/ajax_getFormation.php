@@ -15,7 +15,7 @@ function retrieveFormation($name){
     $q .= ' WHERE NOT EXISTS (
               SELECT * 
               FROM suivreformation  
-              WHERE e_id = ' . $_SESSION['id'] . ' 
+              WHERE e_id = ' . unserialize($_SESSION['user'])->getId_e() . ' 
               AND f.id_f = suivreFormation.f_id) 
             AND date_f > now() 
             ORDER BY id_f DESC

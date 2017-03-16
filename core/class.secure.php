@@ -8,7 +8,7 @@ class Secure {
     return preg_replace("/^([\$\%]*)$/",' ',$chaine);
   }
   public static function SecForm($chaine){
-    return htmlentities(self::specialChar(self::removeTag($chaine)));
+    return trim(htmlentities(self::specialChar(self::removeTag($chaine))));
   }
 }
 ?>

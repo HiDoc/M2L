@@ -5,13 +5,6 @@ if(file_exists('../'.$path))
 else
   require($path);
 ?>
-<?php
-$path = 'core/class.glyphicon.php';
-if(file_exists('../'.$path))
-  require '../'.$path;
-else
-  require($path);
-?>
 <?php 
 /**
   * Crée les bouttons à afficher selon les tables

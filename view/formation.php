@@ -22,10 +22,9 @@
 				<div class="col-xs-12 col-sm-offset-3 col-sm-1">
 					<div class="input-group">
 					  <div class="input-group-btn">
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></button>
-						<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></button>
-					  </div>
+						<button class="btn btn-default active" type="button" data-display="list"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span></button>
+						<button class="btn btn-default" type="button" data-display="thumbnail"><span class="glyphicon glyphicon-th" aria-hidden="true"></span></button>
+                      </div>
 					</div>
 				</div>
 			</div>	

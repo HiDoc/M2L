@@ -211,6 +211,9 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
   border-color: rgba(54, 104, 153, 0.18);
   cursor: pointer;
 }
+.template-formation .tablescroll {
+  overflow-x: hidden;
+}
 /* MES FORMATIONS */
 .template-mesFormations .formation-table-content .tablescroll {
   max-height: 200px;

@@ -1,14 +1,15 @@
 <?php
-session_start();
 
 require_once "controller/bdd.php";
-// Require de chaque fichier du dossier core
-foreach (glob("/core/*.php") as $filename)
-    require ($filename);
+foreach (glob("core/*.php") as $filename)
+{
+  require_once ($filename);
+}
 
+session_start();
 define('BASE_URL', dirname($_SERVER['SCRIPT_NAME']));
 
-if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){
+if(isset($_SESSION['user'])){
   if(!isset($_GET['p']) || $_GET['p'] == "" || $_GET['p'] == 'login' || $_GET['p'] == 'bdd') {
       $_GET['p'] = "accueil";
   }

@@ -23,7 +23,7 @@
 <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
 
 <body class="<?= 'template-'.$_GET['p'] ?>">
-  <?php if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){?>
+  <?php if(isset($_SESSION['user'])){?>
     <nav class="navbar navbar-static-top navbar-default">
       <div class="container-fluid">
         <!-- Nom de l'entreprise et liste pour mobile -->
@@ -58,7 +58,7 @@
         <div class="wrapper">
           <div class="row">
             <div class="container-fluid">
-              <?php if(isset($_SESSION['connecte']) && ($_SESSION['connecte']) == 'true'){?>
+              <?php if(isset($_SESSION['user'])){?>
                 <div class="col-sm-2">
                   <div class="collapse navbar-collapse" id="navbar-collapse-2">
                     <!-- Navbar Gauche -->
@@ -104,6 +104,9 @@
             $('#navbar-collapse-2 > nav > ul > li > a[href$=accueil]').parent().addClass('active');
           else
             $('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual + ']').parent().addClass('active');
+          <?php if(isset($scriptBase)) echo $scriptBase ?>
+        </script>
+        <script>
           <?php if(isset($script)) echo $script ?>
         </script>
   </body>

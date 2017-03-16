@@ -4,12 +4,12 @@ if(isset($_POST['refresh'])){
 }
 function getEmploye(){
   $bdd = $GLOBALS['bdd'];
-  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".$_SESSION['id']);
+  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".unserialize($_SESSION['user'])->getId_e());
   return $query->fetchAll();
 }
 function getNumber(){
   $bdd = $GLOBALS['bdd'];
-  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".$_SESSION['id']);
+  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".unserialize($_SESSION['user'])->getId_e());
   return $query->rowCount();
 }
 function getFormation($id){

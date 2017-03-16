@@ -1,4 +1,5 @@
 <?php 
+require("../core/class.user.php");
 session_start();
 require('../model/ajax_getFormation.php');
 require('../core/class.button.php');

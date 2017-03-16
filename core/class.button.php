@@ -1,30 +1,32 @@
-<?php 
-  include('class.glyphicon.php');
-  class Button {
+<?php
+    include_once('class.glyphicon.php');
+    class Button {
     /**
       * Constructeur de la classe
       * @return String 
       * @param String Type du bouton
       * @param String Contenu du bouton
       */
+    private $button;
+      
     function __construct(){
       $args = func_get_args();
-      $newButton = '<button class="btn btn-';
-      $newButton .= $args[0].'"';
-      if(isset($args[2])) $newButton .=' data-id="'.$args[2].'"';
-      $newButton .=' type = "button">';
+      $this->button = "<button class='btn btn-";
+      $this->button .= $args[0]."'";
+      if(isset($args[2])) $this->button .= "' data-id='".$args[2]."'";
+      $this->button .=" type = 'button'>";
       
       // Nom du glyphicon à utiliser
-        $newButton .=  Glyph::build(self::builder($args[1])[0]);
+        $this->button .=  Glyph::build(self::builder($args[1])[0]);
       
       // Contenu texte du bouton
-      $newButton .= self::builder($args[1])[1];
+      $this->button .= self::builder($args[1])[1];
       
-      $newButton .= '</button>';
-      
-      echo $newButton;
+      $this->button .= '</button>';
+      if(!isset($args[3]))
+        echo $this->button;
     }
-    function builder($name){
+    private function builder($name){
       $nameReturn = array();
       switch($name){
         case 'download' :
@@ -47,6 +49,10 @@
           $nameReturn[0] = 'asterisk';
           $nameReturn[1] = ' Vous n\'avez pas assez de crédits';
           break;
+        case 'unValid' :
+          $nameReturn[0] = 'remove';
+          $nameReturn[1] = ' Annuler l\'inscription ?';
+          break;
         default :
           $nameReturn[0] = 'ok';
           $nameReturn[1] = ' S\'inscrire';
@@ -54,5 +60,8 @@
       }
       return $nameReturn;
     }
+      function __toString(){
+        return $this->button;
+      }
   }
 ?>
