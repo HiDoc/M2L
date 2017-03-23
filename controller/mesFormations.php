@@ -14,14 +14,14 @@ $script =
     , editable: false
     , eventLimit: true
     , eventClick: function (calEvent, jsEvent, view) {
-      $.post( '/M2L/controller/ajax_getFormation.php',{id : calEvent.sqlId, source : 'mesFormations' }).done(function(data){
+      $.post( '/m2l/ajax/getFormation/',{id : calEvent.sqlId, source : 'mesFormations' }).done(function(data){
         $('.back').html(data);
         $('#card').flip(true);
       });
     }
   });
   
-  $('#card .back').load('/m2L/controller/ajax_getFormation.php');
+  $('#card .back').load('/m2l/ajax/getFormation/');
 });
 $('#card').flip({trigger:'manual'});
 $('.back').click(function(){
@@ -29,7 +29,7 @@ $('.back').click(function(){
 });
 $('tr.historique-table-infos, tr.formationToGo-table-infos').click(function(){
   var thisId = $(this).attr('data-id');
-  $.post( '/m2l/controller/ajax_getFormation.php',{id : thisId, source: 'mesFormations' }).done(function(data){
+  $.post( '/m2l/ajax/getFormation/',{id : thisId, source: 'mesFormations' }).done(function(data){
     $('.back').html(data);
     $('#card').flip(true);
   });

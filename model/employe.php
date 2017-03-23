@@ -1,16 +1,23 @@
-<?php 
-if(isset($_POST['refresh'])){
-  require_once('../controller/bdd.php');
-}
+<?php   
+function getE(){return unserialize($_SESSION['user'])->getId_e();};
 function getEmploye(){
   $bdd = $GLOBALS['bdd'];
-  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".unserialize($_SESSION['user'])->getId_e());
+  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".getE());
   return $query->fetchAll();
 }
 function getNumber(){
   $bdd = $GLOBALS['bdd'];
-  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".unserialize($_SESSION['user'])->getId_e());
+  $query = $bdd->query("SELECT * FROM employe WHERE superieur_id = ".getE());
   return $query->rowCount();
+}
+function getValidation(){
+  $bdd = $GLOBALS['bdd'];
+  $query = $bdd->query("SELECT count(id_e) 
+                        FROM employe, suivreFormation 
+                        WHERE superieur_id = ".getE()."  
+                        AND id_e = e_id 
+                        AND validate = 0");
+  return $query->fetch()[0];
 }
 function getFormation($id){
   $bdd = $GLOBALS['bdd'];

@@ -32,19 +32,20 @@ function showFormation(){
   */
 $scriptBase = "  
 $(document).ready(function(){
-  $('.menu-formation').load('/m2l/controller/ajax_getFormation.php',function(){
+  $('.menu-formation').load('/m2l/ajax/getFormation/',function(){
     $('button.btn-success').click(function(){
-      $.post('/m2l/controller/ajax_inscriptionFormation.php', {id : $(this).attr('data-id') }, null, \"json\").done(function(data){
+      $.post('/m2l/ajax/inscriptionFormation/', {id : $(this).attr('data-id') }, \"json\").done(function(data){
           $('#btn-div button:first-of-type').remove();
-          $('#btn-div').prepend(data);
-          $('div.credit-jour > div:nth-child(1) h3').text(data.cj + ' Jours');
-          $('div.credit-jour > div:nth-child(2) h3').text(data.cp + ' Crédits');
+          data = JSON.parse(data);
+          $('#btn-div').prepend(data.buttons);
+          $('div.jour-credit > div:nth-child(1) h3').text(data.cj + ' jours');
+          $('div.jour-credit > div:nth-child(2) h3').text(data.cp + ' crédits');
         });
     });
   });
   $('#search').click(function(){
     var getType = $('button.active[data-display]').attr('data-display');
-    $.post('/m2l/controller/ajax_recherche.php',{ keywords : $(\"#keywords\").val(),type : getType }).done(function(data){
+    $.post('/m2l/ajax/recherche/',{ keywords : $(\"#keywords\").val(),type : getType }).done(function(data){
       $('tbody').html(data);
       reload();
       });
@@ -52,7 +53,7 @@ $(document).ready(function(){
   $('#keywords').keypress(function(event){
     var getType = $('button.active[data-display]').attr('data-display');
     if ( event.which == 13) {
-      $.post('/m2l/controller/ajax_recherche.php',{ keywords : $(\"#keywords\").val(), type : getType }).done(function(data){
+      $.post('/m2l/ajax/recherche/',{ keywords : $(\"#keywords\").val(), type : getType }).done(function(data){
       $('tbody').html(data);
       reload();
       });
@@ -63,7 +64,7 @@ $(document).ready(function(){
     $(this).addClass('active');
     var displayBox = $(this).attr('data-display') == 'list';
     event.preventDefault;
-    $.post('/m2l/controller/ajax_recherche.php',{ keywords : $.trim($('#keywords').val()), type : $(this).attr('data-display')}).done(
+    $.post('/m2l/ajax/recherche/',{ keywords : $.trim($('#keywords').val()), type : $(this).attr('data-display')}).done(
       function(data) { 
         if(displayBox) 
           $('thead').fadeIn(200);
@@ -85,14 +86,15 @@ $('tr').hover(function(){
 });
 $('tr, button[data-id]').click(function(){
   var thisId = $(this).attr('data-id');
-  $.post('/m2l/controller/ajax_getFormation.php',{id : thisId, source:'formation' }).done(function(data){
+  $.post('/m2l/ajax/getFormation/',{id : thisId, source:'formation' }).done(function(data){
       $('.menu-formation').html(data);
       $('button.btn-success').click(function(){
-        $.post('/m2l/controller/ajax_inscriptionFormation.php', {id : $(this).attr('data-id') }, \"json\").done(function(data){
+        $.post('/m2l/ajax/inscriptionFormation/', {id : $(this).attr('data-id') }, \"json\").done(function(data){
+          data = JSON.parse(data);  
           $('#btn-div button:first-of-type').remove();
-          $('#btn-div').prepend(data);
-          $('div.credit-jour > div:nth-child(1) h3').text(data.cj + ' Jours');
-          $('div.credit-jour > div:nth-child(2) h3').text(data.cp + ' Crédits');
+          $('#btn-div').prepend(data.buttons);
+          $('div.jour-credit > div:nth-child(1) h3').text(data.cj + ' Jours');
+          $('div.jour-credit > div:nth-child(2) h3').text(data.cp + ' Crédits');
         });
       });
     });

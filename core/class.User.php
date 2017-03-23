@@ -82,5 +82,8 @@ class User {
     $this->hydrate($array);
     $_SESSION['user'] = serialize($this); 
   }
+  public function enoughCredit($cPoints, $cJour){
+    return ($cJour <= $this->creditJour && $cPoints <= $this->creditPoint);
+  }
 }
 ?>

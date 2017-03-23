@@ -1,8 +1,4 @@
-<?php require('../core/class.user.php'); ?>
-<?php session_start();?>
-<?php require ('../controller/bdd.php')?>
-<?php require ('../core/class.button.php')?>
-<?php require ('../model/ajax_inscriptionFormation.php')?>
+<?php require ('/model/ajax_inscriptionFormation.php')?>
 <?php
   
 function verifyEnough($user, $formation){

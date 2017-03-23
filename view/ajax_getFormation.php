@@ -11,7 +11,11 @@
 </div>
 <div class="row">
   <div class="col-xs-12 border-top-purple">
-    <h2>Description de la formation :</h2> </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-1">
+        <h2>Description de la formation :</h2> </div>
+      </div>
+    </div>
 </div>
 <div class="row list-border">
   <div class="col-xs-4 col-sm-3 col-sm-offset-1"></div>
@@ -23,7 +27,7 @@
 </div>
 <div class="row">
   <div class="col-xs-12 col-sm-10 col-sm-offset-1" id="btn-div">
-    <?php buttonToShow()?>
+    <?php buttonToShow(unserialize($_SESSION['user'])->enoughCredit((int)$data[2],(int)$data[9]));?>
   </div>
 </div>
 <div class="row">

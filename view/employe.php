@@ -8,30 +8,35 @@
           <div class="row text-center jour-credit">
             <div class="col-xs-6">
               <h3><?= getNumber(); ?></h3>
-              <p>Employés
-                <p>
+              <p>Employés<p>
             </div>
             <div class="col-xs-6">
-              <h3>5000 Crédits</h3>
-              <p>requis</p>
+              <h3><?= getValidation(); ?></h3>
+              <p>validation à vérifier</p>
             </div>
           </div>
           <div class="row">
             <div class="col-xs-12">
               <h2>Récapitulatif des employés :</h2>
-              <table class="table table-condensed historique-table">
-                <thead>
-                  <tr>
-                    <th>Nom</th>
-                    <th>Prénom</th>
-                    <th>Email</th>
-                    <th>Formation de l'employé</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php showEmploye();?>
-                </tbody>
-              </table>
+              <div class="row">
+                <div class="col-sm-6 col-offset-3 col-xs-12">
+                  <div class="input-group">
+                    <input type="text" class="form-control" id="keywords" placeholder="Rechercher un employé..."> <span class="input-group-btn">
+                      <?php new Button("default' id='search", 'search'); ?>
+                      </span> </div>
+                </div>
+                <div class="col-xs-12 col-sm-offset-2 col-sm-1">
+                  <div class="input-group">
+                    <div class="input-group-btn" id="changeTo">
+                      <?php new Button('default active', 'list'); ?>
+                        <?php new Button('default', 'thumb'); ?>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tablescroll">
+                <?php //Contenu appelé en ajax ?>
+              </div>
             </div>
           </div>
         </div>

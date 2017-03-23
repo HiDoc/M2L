@@ -1,15 +1,11 @@
 <?php 
-$path = 'controller/bdd.php';
-if(file_exists('../'.$path))
-  require '../'.$path;
-else
-  require($path);
 
 function retrieveFormation($name){
-  $q = 'SELECT titre, date(date_f), creditPoint, lieu, description, prerequis, nom, duree, id_f as id 
+  $q = 'SELECT titre, date(date_f), creditPoint, lieu, description, prerequis, nom, duree, id_f as id, creditJour
         FROM formation f, prestataire p ';
   if($name == 'get'){
-    $q .= 'WHERE id_f = :id AND p_id = id_p';
+    $q .='WHERE id_f = :id 
+      AND p_id = id_p ';
   }
   else {
     $q .= ' WHERE NOT EXISTS (

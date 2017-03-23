@@ -1,9 +1,4 @@
 <?php
-$path = 'controller/bdd.php';
-if(file_exists('../'.$path))
-  require '../'.$path;
-else
-  require($path);
 
 function recherche($mot){
   $bdd = $GLOBALS['bdd'];

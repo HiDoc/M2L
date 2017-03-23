@@ -1,11 +1,6 @@
 <?php 
-$path = array("model/ajax_recherche.php","core/class.glyphicon.php","core/class.secure.php");
-foreach($path as $find){ 
-  if(file_exists('../'.$find))
-    require_once '../'.$find;
-  else
-    require_once($find);
-}
+require "/model/ajax_recherche.php";
+
 if(isset($_POST['keywords']) || isset($_GET['k'])){
   $keywords = isset($_POST['keywords']) ? Secure::SecForm($_POST['keywords']) : $_GET['k'];
   echo (isset($_GET['k']) ? '<table><tbody>' : '');
@@ -16,10 +11,9 @@ if(isset($_POST['keywords']) || isset($_GET['k'])){
     constructRow($data);
   echo (isset($_GET['k']) ? '</tbody></table>' : '');
 }
-//else {constructRow(recherche(''));}
 function constructThumbnail($formations = array()){
   foreach($formations as $key => $formation){
-    if(rowCount($key + 1) || $key == 0) echo '<div class="row">';
+    if(rowCount($key) || $key == 0) echo '<div class="row">';
       echo '
         <div class="col-sm-4">
           <div class="thumbnail">

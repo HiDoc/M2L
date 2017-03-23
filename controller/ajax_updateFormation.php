@@ -1,4 +1,4 @@
-<?php require('../model/ajax_updateFormation.php');?>
+<?php require('/model/ajax_updateFormation.php');?>
 <?php 
 if(isset($_POST['id_u'], $_POST['id_f'], $_POST['bool'])){
   validate($_POST['id_u'], $_POST['id_f'],$_POST['bool']);

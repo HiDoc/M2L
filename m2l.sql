@@ -1,5 +1,6 @@
+
 use M2L;
-drop table if exists associer,tag, suivreFormation, formation, prestataire,employe,typeEmploye;
+drop table if exists messages,associer,tag, suivreFormation, formation, prestataire,employe,typeEmploye;
 drop procedure if exists ajouter_formation;
 drop procedure if exists insert_user;
 drop procedure if exists assoc_formation;
@@ -68,6 +69,16 @@ foreign key (e_id) references employe(id_e),
 foreign key (f_id) references formation(id_f)
 );
 
+create table if not exists messages(
+id_m int not null primary key auto_increment,
+envoi_id int not null,
+recep_id int not null,
+m_date datetime,
+m_text text,
+foreign key (envoi_id) references employe(id_e),
+foreign key (recep_id) references employe(id_e)
+);
+
 DELIMITER |
 CREATE PROCEDURE ajouter_formation(nbr int)      
 BEGIN
@@ -129,13 +140,12 @@ DECLARE v_i INT DEFAULT 1;
 	UNTIL v_i > nbr END REPEAT;
 END $$
 DELIMITER ;
-select * from employe where id_e = 1;
-CALL assoc_formation(50);
-use m2l;
-update employe set creditJour = 15;
-delete from suivreformation where e_id = 1;
-select * from employe;
- UPDATE employe 
-  SET creditJour = 13, creditPoint = 50000 
-  WHERE id_e = 1;
-  
+insert into messages values (default, 2,1,now(), "salut c'est moi");
+
+select id_m, envoi_id, recep_id,m_date, m_text, e.id_e, concat(e.nom,e.prenom) as  from messages, employe e, employe f
+where e.id_e = 1
+and f.id_e = 2
+and (
+	(e.id_e = envoi_id and recep_id = f.id_e)
+or (f.id_e = envoi_id and recep_id = e.id_e)
+);

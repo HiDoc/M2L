@@ -17,7 +17,7 @@
       $this->button .=" type = 'button'>";
       
       // Nom du glyphicon à utiliser
-        $this->button .=  Glyph::build(self::builder($args[1])[0]);
+      $this->button .=  Glyph::build(self::builder($args[1])[0]);
       
       // Contenu texte du bouton
       $this->button .= self::builder($args[1])[1];
@@ -52,6 +52,22 @@
         case 'unValid' :
           $nameReturn[0] = 'remove';
           $nameReturn[1] = ' Annuler l\'inscription ?';
+          break;
+        case 'search' :
+          $nameReturn[0] = 'search';
+          $nameReturn[1] = '';
+          break;
+        case 'notif' :
+          $nameReturn[0] = '';
+          $nameReturn[1] = ' Notifications <span class="badge">0</span>';
+          break;
+        case 'list' :
+          $nameReturn[0] = 'th-list';
+          $nameReturn[1] = '';
+          break;
+        case 'thumb' :
+          $nameReturn[0] = 'th';
+          $nameReturn[1] = '';
           break;
         default :
           $nameReturn[0] = 'ok';

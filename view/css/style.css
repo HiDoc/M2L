@@ -10,12 +10,14 @@ body {
 body > div.wrapper {
   height: calc(100% - 75px);
 }
-
 .wrapper > div.row {
   margin: 0;
   padding-right: 0;
 }
-
+a.dropdown-toggle .badge {
+  background-color: #d9edf7;
+  color :#366899;
+}
 body > div > div > div > div.col-xs-12.col-md-10 > section > div > div:nth-child(2) {
   background-color: whitesmoke;
 }
@@ -99,8 +101,7 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 > h4 {
 
 div.col-xs-12.menu-formation > div > div.col-xs-4 {
   height: 100px;
-  background-color: #366899;
-}
+ }
 
 div.col-xs-12.menu-formation > div > div.col-xs-8 {
   height: 100px;
@@ -201,6 +202,10 @@ div.col-xs-12.menu-formation > div > div.col-xs-8 {
 .template-employe .table-condensed > tbody > tr > td,
 .template-employe .table-condensed > tfoot > tr > td {
   vertical-align: middle;
+}
+.template-employe .tablescroll{
+  max-height: 500px;
+  overflow-x: hidden;
 }
 /* TOUTES LES FORMATIONS */
 .formation-table-infos.formation-hover{

@@ -1,4 +1,3 @@
-<?php require_once('core/class.glyphicon.php'); ?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -13,6 +12,7 @@
   <link href="<?=BASE_URL?>/view/css/bootstrap.css" rel="stylesheet">
   <link href="<?=BASE_URL?>/view/css/bootstrap-theme.css" rel="stylesheet">
   <link href="<?=BASE_URL?>/view/css/style.css" rel="stylesheet">
+  <link href="<?=BASE_URL?>/view/css/msg.css" rel="stylesheet">
   <link href='<?=BASE_URL?>/view/css/fullcalendar.min.css' rel='stylesheet' />
   <link href='<?=BASE_URL?>/view/css/fullcalendar.print.css' rel='stylesheet' media='print' />
   <!-- Google Font CSS -->
@@ -30,8 +30,16 @@
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1,#navbar-collapse-2" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> <a class="navbar-brand" href="<?=BASE_URL?>/accueil">M2L GESTION</a> </div>
         <!-- Navbar Haut -->
+        
         <div class="collapse navbar-collapse" id="navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav">
+            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Notifications <span class="bg-info badge">0</span></a>
+              <ul class="dropdown-menu">
+                <li role="separator" class="divider"></li>
+              </ul>
+            </li>
+          </ul>
+           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;&nbsp;Mon compte&nbsp;<span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="profil"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;Profil </a></li>
@@ -64,14 +72,38 @@
                     <!-- Navbar Gauche -->
                     <nav>
                       <ul class="nav nav-pills nav-stacked">
-                        <li role="menuitem"><a href="<?=BASE_URL?>/accueil"><?=Glyph::build('home')?>&nbsp;&nbsp;Accueil</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/formation"><?=Glyph::build('tags')?>&nbsp;&nbsp;Offres de formations</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/mesFormations"><?=Glyph::build('list-alt')?>&nbsp;&nbsp;Mes formations</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/messagerie"><?=Glyph::build('envelope')?>&nbsp;&nbsp;Messages</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/employe"><?=Glyph::build('user')?>&nbsp;&nbsp;Gestion des employés</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/ficheFormation"><?=Glyph::build('file')?>&nbsp;&nbsp;Fiche de formation</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/recherche"><?=Glyph::build('search')?>&nbsp;&nbsp;Recherche</a></li>
-                        <li role="menuitem"><a href="<?=BASE_URL?>/statistique"><?=Glyph::build('search')?>&nbsp;&nbsp;Statistique</a></li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/accueil">
+                            <?=Glyph::build('home')?>&nbsp;&nbsp;Accueil</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/formation">
+                            <?=Glyph::build('tags')?>&nbsp;&nbsp;Offres de formations</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/mesFormations">
+                            <?=Glyph::build('list-alt')?>&nbsp;&nbsp;Mes formations</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/messagerie">
+                            <?=Glyph::build('envelope')?>&nbsp;&nbsp;Messages</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/employe">
+                            <?=Glyph::build('user')?>&nbsp;&nbsp;Gestion des employés</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/ficheFormation">
+                            <?=Glyph::build('file')?>&nbsp;&nbsp;Fiche de formation</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/recherche">
+                            <?=Glyph::build('search')?>&nbsp;&nbsp;Recherche</a>
+                        </li>
+                        <li role="menuitem">
+                          <a href="<?=BASE_URL?>/statistique">
+                            <?=Glyph::build('search')?>&nbsp;&nbsp;Statistique</a>
+                        </li>
                       </ul>
                     </nav>
                   </div>
@@ -91,23 +123,22 @@
         <script src='<?=BASE_URL?>/view/js/moment.min.js'></script>
         <script src='<?=BASE_URL?>/view/js/fullcalendar.min.js'></script>
         <script>
-          function reload(){
+          function reload() {
             var script = $("script:last-of-type").text();
             $("script:last-of-type").remove();
             var s = document.createElement("script");
-              s.type = "text/javascript";
-              s.innerHTML = script;
-              $("body").append(s);
+            s.type = "text/javascript";
+            s.innerHTML = script;
+            $("body").append(s);
           }
           var actual = $('body').attr('class').substr(9);
-          if(actual == '')
-            $('#navbar-collapse-2 > nav > ul > li > a[href$=accueil]').parent().addClass('active');
-          else
-            $('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual + ']').parent().addClass('active');
+          if (actual == '') $('#navbar-collapse-2 > nav > ul > li > a[href$=accueil]').parent().addClass('active');
+          else $('#navbar-collapse-2 > nav > ul > li > a[href$=' + actual + ']').parent().addClass('active');
           <?php if(isset($scriptBase)) echo $scriptBase ?>
         </script>
         <script>
           <?php if(isset($script)) echo $script ?>
         </script>
-  </body>
+</body>
+
 </html>

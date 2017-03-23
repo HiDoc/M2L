@@ -13,7 +13,7 @@ $(document).ready(function () {
               , editable: false
               , eventLimit: true
               , eventClick: function (calEvent, jsEvent, view) {
-                $.post( '/M2L/controller/ajax_getFormation.php',{id : calEvent.sqlId, source : 'mesFormations' }).done(function(data){
+                $.post( '/M2L/ajax/getFormation', {id : calEvent.sqlId, source : 'mesFormations' }).done(function(data){
                   $('.back').html(data);
                   $('#card').flip(true);
                 });
